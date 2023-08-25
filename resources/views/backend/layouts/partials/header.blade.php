@@ -2,10 +2,10 @@
 
     <div class="d-flex align-items-center justify-content-between">
       <a href="index.html" class="logo d-flex align-items-center">
-        <img src="{{asset('ui/backend')}}/assets/img/logo.png" alt="">
-        <span class="d-none d-lg-block">NiceAdmin</span>
+        <img src="{{asset('ui/backend')}}/assets/img/medi_logo.png" alt="">
+        <span class="d-none d-lg-block " style="color:rgba(55,180,236,255)">Medi <span style="color:rgba(141,196,66,255)">Mart</span></span>
       </a>
-      <i class="bi bi-list toggle-sidebar-btn"></i>
+      <i class="bi bi-list toggle-sidebar-btn" style="color:rgba(55,180,236,255)"></i>
     </div><!-- End Logo -->
 
     <div class="search-bar">
