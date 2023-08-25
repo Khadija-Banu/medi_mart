@@ -5,6 +5,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\MedicineController;
 use App\Http\Controllers\VendorController;
+use App\Http\Controllers\OrderController;
+use App\Http\Controllers\CartController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -68,4 +70,27 @@ Route::prefix('vendor')->group(function () {
     Route::get('/edit/{id}',[VendorController::class,'edit'])->name('vendor_edit');
     Route::post('/update/{id}',[VendorController::class,'update'])->name('vendor_update');
     Route::get('/delete/{id}',[VendorController::class,'delete'])->name('vendor_delete');
+});
+
+//order route
+
+Route::prefix('order')->group(function () {
+    Route::get('/index',[OrderController::class,'index'])->name('order_index');
+    Route::get('/create',[OrderController::class,'create'])->name('order_create');
+    Route::post('/store',[OrderController::class,'store'])->name('order_store');
+    Route::get('/edit/{id}',[OrderController::class,'edit'])->name('order_edit');
+    Route::post('/update/{id}',[OrderController::class,'update'])->name('order_update');
+    Route::get('/delete/{id}',[OrderController::class,'delete'])->name('order_delete');
+});
+
+
+//cart route
+
+Route::prefix('cart')->group(function () {
+    Route::get('/index',[CartController::class,'index'])->name('cart_index');
+    Route::get('/create',[CartController::class,'create'])->name('cart_create');
+    Route::post('/store',[CartController::class,'store'])->name('cart_store');
+    Route::get('/edit/{id}',[CartController::class,'edit'])->name('cart_edit');
+    Route::post('/update/{id}',[CartController::class,'update'])->name('cart_update');
+    Route::get('/delete/{id}',[CartController::class,'delete'])->name('cart_delete');
 });
