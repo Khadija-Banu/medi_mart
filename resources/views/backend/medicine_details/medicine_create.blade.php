@@ -1,7 +1,6 @@
 @extends('backend.master')
 
 @section('content')
-
 <div class="container m-5 p-5">
     <div class="card">
     <div class="card-body mt-4 ">
@@ -21,6 +20,26 @@
               <div class="form-group mt-2">
                 <input type="text" name="medicine_price" class="form-control"placeholder="medicine price" >
               </div>
+              <div class="form-group mt-2">
+                <select class="form-select" name="category_id" >
+                  <option value="">Select category name</option>
+                  @foreach ($categories as $category)
+                  <option value="{{$category->id}}" >{{$category->category_name}}</option>
+                  @endforeach
+              
+                </select>
+              </div>
+
+              <div class="form-group mt-2">
+                <select class="form-select" name="vendor_id" >
+                  <option value="">Select store name</option>
+                  @foreach ($vendors as $vendor)
+                  <option value="{{$vendor->id}}" >{{$vendor->store_name}}</option>
+                  @endforeach
+              
+                </select>
+              </div>
+      
               <button type="submit" class="btn btn-success mt-2">Submit</button>
             </form>
         </div>

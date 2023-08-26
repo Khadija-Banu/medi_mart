@@ -7,6 +7,7 @@ use App\Http\Controllers\MedicineController;
 use App\Http\Controllers\VendorController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\SearchController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -94,3 +95,10 @@ Route::prefix('cart')->group(function () {
     Route::post('/update/{id}',[CartController::class,'update'])->name('cart_update');
     Route::get('/delete/{id}',[CartController::class,'delete'])->name('cart_delete');
 });
+
+//user list route
+Route::get('/user_list',[ProfileController::class,'userList'])->name('user_list');
+
+
+Route::get('/search',[SearchController::class,'search'])->name('search');
+Route::get('/search',[SearchController::class,'search_order'])->name('search');

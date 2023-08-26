@@ -16,6 +16,7 @@
                     <th style="color:rgba(141,196,66,255)" class="fs-5">Medicine Image</th> 
                     <th style="color:rgba(141,196,66,255)" class="fs-5">Medicine Description</th>  
                     <th style="color:rgba(141,196,66,255)" class="fs-5">Price</th>
+                    <th style="color:rgba(141,196,66,255)" class="fs-5">Category Name</th>
                     <th style="color:rgba(141,196,66,255)" class="fs-5">Store Name</th>                     
                     <th style="color:rgba(141,196,66,255)" class="fs-5">Actions</th>     
                   </tr>
@@ -35,9 +36,11 @@
                       <img src="{{asset('storage/categories/default.jpg')}}"height="100px" width="150px">
                       @endif
                     </td>
+
                     <td>{{$medicine->medicine_description}}</td>
                     <td>{{$medicine->medicine_price}}</td>
-                    <td>{{$medicine->store_name}}</td>
+                    <td>{{$medicine->category->category_name?? ''}}</td>
+                    <td>{{$medicine->vendor->store_name?? ''}}</td>
                     <td>
                       <a class="btn btn-sm btn-warning" href="{{route('medicine_edit',$medicine->id)}}">Edit</a>
                       <a class="btn btn-sm btn-danger" href="{{route('medicine_delete',$medicine->id)}}">Delete</a>
@@ -46,8 +49,12 @@
                   @endforeach      
                 </tbody>
               </table>
+        {{-- pegination link show --}}
+        {{ $medicines->links() }} 
+
+             
         </div>
     </div>
 </div>
-    
+      
 @endsection

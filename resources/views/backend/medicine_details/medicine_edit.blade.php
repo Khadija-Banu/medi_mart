@@ -20,6 +20,24 @@
             <div class="form-group mt-2">
                 <input class="form-control" type="text "value="{{$medicines->medicine_price}}" name="medicine_price" >
             </div>
+            <div class="form-group mt-2">
+                <select class="form-select" name="category_id" >
+                  <option value="">Select category name</option>
+                  @foreach ($categories as $category)
+                  <option value="{{$category->id}}" >{{$category->category_name}}</option>
+                  @endforeach
+              
+                </select>
+              </div>
+              <div class="form-group mt-2">
+                <select class="form-select" name="vendor_id" >
+                  <option value="">Select store name</option>
+                  @foreach ($vendors as $vendor)
+                  <option value="{{$vendor->id}}" >{{$vendor->store_name}}</option>
+                  @endforeach
+              
+                </select>
+              </div>
               <button type="submit" class="btn btn-success mt-2">Update</button>
             </form>
         </div>

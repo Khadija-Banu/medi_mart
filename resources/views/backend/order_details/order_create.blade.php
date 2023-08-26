@@ -9,6 +9,8 @@
         
     <form action="{{route('order_store')}}" method="post" class="mt-4" enctype="multipart/form-data">
         @csrf
+
+      
             <div class="form-group mt-2">
                 <input class="form-control" type="text " name="status" placeholder="status">
             </div>
@@ -19,8 +21,13 @@
                 <input type="text" name="mobile_no" class="form-control" placeholder="mobile no">
               </div>
               <div class="form-group mt-2">
-                <input class="form-control" type="text " name="user_id" placeholder="User Id">
-            </div>
+                <select class="form-select" name="user_id" >
+                  <option value="">Select user name</option>
+                  @foreach ($users as $user)
+                  <option value="{{$user->id}}" >{{$user->name}}</option>
+                  @endforeach        
+                </select>
+              </div>
               <button type="submit" class="btn btn-success mt-2">Submit</button>
             </form>
         </div>

@@ -46,6 +46,9 @@
                   @endforeach      
                 </tbody>
               </table>
+
+                   {{-- pegination link show --}}
+                  {{ $vendors->links() }} 
         </div>
     </div>
 </div>

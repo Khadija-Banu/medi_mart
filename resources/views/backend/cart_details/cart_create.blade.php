@@ -19,11 +19,21 @@
                 <input type="text" name="total_price" class="form-control" placeholder="Total Price ">
               </div>
               <div class="form-group mt-2">
-                <input class="form-control" type="text " name="user_id" placeholder="User Id">
-            </div>
-            <div class="form-group mt-2">
-              <input class="form-control" type="text " name="medicine_id" placeholder="Medicine Id">
-          </div>
+                <select class="form-select" name="user_id" >
+                  <option value="">Select user name</option>
+                  @foreach ($users as $user)
+                  <option value="{{$user->id}}" >{{$user->name}}</option>
+                  @endforeach        
+                </select>
+              </div>
+              <div class="form-group mt-2">
+                <select class="form-select" name="medicine_id" >
+                  <option value="">Select Medicine name</option>
+                  @foreach ($medicines as $medicine)
+                  <option value="{{$medicine->id}}" >{{$medicine->medicine_name}}</option>
+                  @endforeach        
+                </select>
+              </div>
               <button type="submit" class="btn btn-success mt-2">Submit</button>
             </form>
         </div>

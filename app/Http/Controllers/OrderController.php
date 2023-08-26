@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Order;
+use App\Models\User;
 use Illuminate\Support\Carbon;
 use Image;
 
@@ -11,12 +12,13 @@ use Image;
 class OrderController extends Controller
 {
     public function index(){
-        $orders=Order::all();
+        $orders=Order::paginate(4);
         return view ('backend.order_details.order_index',compact('orders'));
     }
 
     public function create(){
-        return view ('backend.order_details.order_create');
+        $users=User::all();
+        return view ('backend.order_details.order_create',compact('users'));
     }
 
     public function store(Request $request){
@@ -31,8 +33,9 @@ class OrderController extends Controller
     }
 
     public function edit($id){
+        $users=User::all();
         $orders=Order::find($id);
-        return view ('backend.order_details.order_edit',compact('orders'));
+        return view ('backend.order_details.order_edit',compact('orders','users'));
     }
 
     public function update(Request $request,$id){

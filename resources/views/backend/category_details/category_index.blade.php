@@ -14,6 +14,7 @@
                     <th style="color:rgba(141,196,66,255)" class="fs-5">Ser No</th>
                     <th style="color:rgba(141,196,66,255)" class="fs-5">Category Name</th> 
                     <th style="color:rgba(141,196,66,255)" class="fs-5">Category Image</th>  
+                    <th style="color:rgba(141,196,66,255)" class="fs-5">Medicine item</th> 
                     <th style="color:rgba(141,196,66,255)" class="fs-5">Actions</th>     
                   </tr>
                 </thead>
@@ -32,6 +33,13 @@
                       <img src="{{asset('storage/categories/default.jpg')}}"height="100px" width="150px">
                       @endif
                     </td>
+
+                    <td>
+                      @foreach ($category->medicines as $medicine)
+                      <li>{{$medicine->medicine_name}}</li>  
+                      @endforeach
+                  </td>
+
                     <td>
                       <a class="btn btn-sm btn-warning" href="{{route('category_edit',$category->id)}}">Edit</a>
                       <a class="btn btn-sm btn-danger" href="{{route('category_delete',$category->id)}}">Delete</a>
@@ -40,6 +48,9 @@
                   @endforeach      
                 </tbody>
               </table>
+
+                   {{-- pegination link show --}}
+                   {{ $categories->links() }} 
         </div>
     </div>
 </div>
