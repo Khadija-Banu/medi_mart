@@ -17,7 +17,7 @@ class ProfileController extends Controller
       //Registration user list show
       public function userList(){
         $users=User::paginate(4);
-        return view('backend.user_list',compact('users'));
+        return view('backend.user_details.user_list',compact('users'));
     }
 
     /**

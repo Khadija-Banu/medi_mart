@@ -100,5 +100,4 @@ Route::prefix('cart')->group(function () {
 Route::get('/user_list',[ProfileController::class,'userList'])->name('user_list');
 
 
-Route::get('/search',[SearchController::class,'search'])->name('search');
-Route::get('/search',[SearchController::class,'search_order'])->name('search');
+Route::get('/search',[SearchController::class,'medicine_search'])->name('search');
