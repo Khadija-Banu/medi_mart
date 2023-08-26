@@ -19,8 +19,13 @@
                 <input type="text" name="mobile_no" class="form-control" value="{{$orders->mobile_no}}">
               </div>
               <div class="form-group mt-2">
-                <input class="form-control" type="text " name="user_id" value="{{$orders->user_id}}">
-            </div>
+                <select class="form-select" name="user_id" >
+                  <option value="">Select user name</option>
+                  @foreach ($users as $user)
+                  <option value="{{$user->id}}" >{{$user->name}}</option>
+                  @endforeach        
+                </select>
+              </div>
               <button type="submit" class="btn btn-success mt-2">Update</button>
             </form>
         </div>

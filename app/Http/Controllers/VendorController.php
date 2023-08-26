@@ -10,7 +10,7 @@ use Image;
 class VendorController extends Controller
 {
     public function index(){
-        $vendors=Vendor::all();
+        $vendors=Vendor::paginate(4);
         return view ('backend.vendor_details.vendor_index',compact('vendors'));
     }
 

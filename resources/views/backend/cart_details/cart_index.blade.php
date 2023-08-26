@@ -15,8 +15,8 @@
                     <th style="color:rgba(141,196,66,255)" class="fs-5"> Quantity</th> 
                     <th style="color:rgba(141,196,66,255)" class="fs-5">Unit price</th> 
                     <th style="color:rgba(141,196,66,255)" class="fs-5">Total price</th> 
-                    <th style="color:rgba(141,196,66,255)" class="fs-5">User Id</th>   
-                    <th style="color:rgba(141,196,66,255)" class="fs-5">Medicine Id</th>                               
+                    <th style="color:rgba(141,196,66,255)" class="fs-5">User Name</th>   
+                    <th style="color:rgba(141,196,66,255)" class="fs-5">Medicine Name</th>                               
                    <th style="color:rgba(141,196,66,255)" class="fs-5">Actions</th>     
                   </tr>
                 </thead>
@@ -30,8 +30,8 @@
                     <td>{{$cart->quantity}}</td>
                     <td>{{$cart->unit_price}}</td>               
                     <td>{{$cart->total_price}}</td>
-                    <td>{{$cart->user_id}}</td> 
-                    <td>{{$cart->medicine_id}}</td>              
+                    <td>{{$cart->user->name?? ''}}</td> 
+                    <td>{{$cart->medicine->medicine_name?? ''}}</td>              
                     <td>
                       <a class="btn btn-sm btn-warning" href="{{route('cart_edit',$cart->id)}}">Edit</a>
                       <a class="btn btn-sm btn-danger" href="{{route('cart_delete',$cart->id)}}">Delete</a>
@@ -40,6 +40,9 @@
                   @endforeach      
                 </tbody>
               </table>
+
+                   {{-- pegination link show --}}
+                   {{ $carts->links() }} 
         </div>
     </div>
 </div>

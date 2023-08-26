@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Medicine;
+use App\Models\Category;
+use App\Models\Vendor;
 use Illuminate\Support\Carbon;
 use Image;
 
@@ -11,18 +13,20 @@ use Image;
 class MedicineController extends Controller
 {
     public function index(){
-        $medicines=Medicine::all();
+        $medicines=Medicine::paginate(4);
         return view ('backend.medicine_details.medicine_index',compact('medicines'));
     }
 
     public function create(){
-        return view ('backend.medicine_details.medicine_create');
+        $vendors=Vendor::all();
+        $categories=Category::all();
+        return view ('backend.medicine_details.medicine_create',compact('categories','vendors'));
     }
 
     public function store(Request $request){
         try{
-   
      $data=$request->all();
+    
      if($request->medicine_image){
          $image=$this->UploadImage($request->medicine_name,$request->medicine_image);
      }
@@ -38,12 +42,13 @@ class MedicineController extends Controller
 
     
     public function edit($id){
+        $vendors=Vendor::all();
+        $categories=Category::all();
         $medicines=Medicine::find($id);
-        return view ('backend.medicine_details.medicine_edit',compact('medicines'));
+        return view ('backend.medicine_details.medicine_edit',compact('medicines','categories','vendors'));
     }
 
     public function update(Request $request,$id){
-
         try{
             $data=$request->except('_token');
 
