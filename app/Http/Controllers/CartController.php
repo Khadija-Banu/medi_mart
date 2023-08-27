@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\CartRequest;
 use App\Models\Cart;
 use App\Models\User;
 use App\Models\Medicine;
@@ -23,14 +24,14 @@ class CartController extends Controller
     }
 
 
-    public function store(Request $request){
+    public function store(CartRequest $request){
         try{
      $data=$request->all();
      Cart::create($data);
      return redirect()->route('cart_index');
     }
     catch(Exception $e){
-     return redirect()-route('cart_create');
+     return redirect()-route('cart_create')->withMessage($e->getMessage());
     }
     }
 

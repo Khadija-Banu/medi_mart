@@ -8,6 +8,7 @@ use App\Http\Controllers\VendorController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\SearchController;
+use App\Http\Controllers\FrontendHomeController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -101,3 +102,11 @@ Route::get('/user_list',[ProfileController::class,'userList'])->name('user_list'
 
 
 Route::get('/search',[SearchController::class,'medicine_search'])->name('search');
+
+
+//Frontend Route
+Route::get('/f_master', function () {
+    return view('frontend.master');
+});
+
+Route::get('/home',[FrontendHomeController::class,'home'])->name('frontend_home');

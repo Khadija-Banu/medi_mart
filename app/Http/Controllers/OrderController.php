@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\OrderRequest;
 use App\Models\Order;
 use App\Models\User;
 use Illuminate\Support\Carbon;
@@ -21,14 +22,14 @@ class OrderController extends Controller
         return view ('backend.order_details.order_create',compact('users'));
     }
 
-    public function store(Request $request){
+    public function store(OrderRequest $request){
         try{
      $data=$request->all();
      Order::create($data);
      return redirect()->route('order_index');
     }
     catch(Exception $e){
-     return redirect()-route('order_create');
+     return redirect()-route('order_create')->withMessage($e->getMessage());
     }
     }
 

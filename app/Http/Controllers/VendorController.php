@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\VendorRequest;
 use App\Models\Vendor;
 use Illuminate\Support\Carbon;
 use Image;
@@ -18,7 +19,7 @@ class VendorController extends Controller
         return view ('backend.vendor_details.vendor_create');
     }
 
-    public function store(Request $request){
+    public function store(VendorRequest $request){
         try{
    
      $data=$request->all();
@@ -31,7 +32,7 @@ class VendorController extends Controller
      return redirect()->route('vendor_index');
     }
     catch(Exception $e){
-     return redirect()-route('vendor_create');
+     return redirect()-route('vendor_create')->withMessage($e->getMessage());
     }
     }
 
