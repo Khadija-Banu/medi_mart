@@ -9,6 +9,7 @@ use App\Http\Controllers\OrderController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\SearchController;
 use App\Http\Controllers\FrontendHomeController;
+use App\Http\Controllers\CompanyController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -95,6 +96,17 @@ Route::prefix('cart')->group(function () {
     Route::get('/edit/{id}',[CartController::class,'edit'])->name('cart_edit');
     Route::post('/update/{id}',[CartController::class,'update'])->name('cart_update');
     Route::get('/delete/{id}',[CartController::class,'delete'])->name('cart_delete');
+});
+
+//company route
+
+Route::prefix('company')->group(function () {
+    Route::get('/index',[CompanyController::class,'index'])->name('company_index');
+    Route::get('/create',[CompanyController::class,'create'])->name('company_create');
+    Route::post('/store',[CompanyController::class,'store'])->name('company_store');
+    Route::get('/edit/{id}',[CompanyController::class,'edit'])->name('company_edit');
+    Route::post('/update/{id}',[CompanyController::class,'update'])->name('company_update');
+    Route::get('/delete/{id}',[CompanyController::class,'delete'])->name('company_delete');
 });
 
 //user list route

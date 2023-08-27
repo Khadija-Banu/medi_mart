@@ -54,6 +54,20 @@
 
               </div>
 
+              
+              <div class="form-group mt-2">
+                <select class="form-select" name="company_id" >
+                  <option value="">Select company name</option>
+                  @foreach ($companies as $company)
+                  <option value="{{$company->id}}" >{{$company->company_name}}</option>
+                  @endforeach             
+                </select>
+
+                @error('company_id')
+                <span class="text-danger">{{ $message }}</span>
+                @enderror
+              </div>
+
               <div class="form-group mt-2">
                 <select class="form-select" name="vendor_id" >
                   <option value="">Select store name</option>

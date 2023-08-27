@@ -29,6 +29,16 @@
               
                 </select>
               </div>
+
+              <div class="form-group mt-2">
+                <input type="text" name="company_name" class="form-control"  value="{{old('company_name')}}" placeholder="company name" >
+
+                @error('company_name')
+                <span class="text-danger">{{ $message }}</span>
+                @enderror
+
+              </div>
+              
               <div class="form-group mt-2">
                 <select class="form-select" name="vendor_id" >
                   <option value="">Select store name</option>

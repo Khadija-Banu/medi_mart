@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests\MedicineRequest;
 use App\Models\Medicine;
 use App\Models\Category;
+use App\Models\Company;
 use App\Models\Vendor;
 use Illuminate\Support\Carbon;
 use Image;
@@ -20,8 +21,9 @@ class MedicineController extends Controller
 
     public function create(){
         $vendors=Vendor::all();
+        $companies=Company::all();
         $categories=Category::all();
-        return view ('backend.medicine_details.medicine_create',compact('categories','vendors'));
+        return view ('backend.medicine_details.medicine_create',compact('categories','vendors','companies'));
     }
 
     public function store(MedicineRequest $request){
