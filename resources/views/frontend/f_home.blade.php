@@ -3,13 +3,11 @@
 @section('content')
     
 
-<main class="main">
-    
-    <section class="home-slider position-relative pt-50">
+<main class="main">   
+    <section class="home-slider position-relative pt-50">  
         <div class="hero-slider-1 dot-style-1 dot-style-1-position-1">
+            @foreach ($sliders as $slider)
             <div class="single-hero-slider single-animation-wrap">
-                
-                    @foreach ($sliders as $slider)
                     <div class="container">
                     <div class="row align-items-center slider-animated-1">
                         <div class="col-lg-5 col-md-6">
@@ -27,10 +25,11 @@
                         </div>
                     </div>                            
                 </div>
-               @endforeach
+         
             </div>
-                          
+            @endforeach               
         </div>
+
         <div class="slider-arrow hero-slider-1-arrow"></div>
     </section>
 
@@ -1026,9 +1025,9 @@
     <section class="banner-2 section-padding pb-0">
         <div class="container">
             <div class="banner-img banner-big wow fadeIn animated f-none">
-                <img src="{{asset('ui/frontend')}}/assets/imgs/banner/banner-4.png" alt="">
+                <img src="{{asset('ui/frontend')}}/assets/imgs/banner/banner.jpg" alt="" style="width: 100%; height:300px">
                 <div class="banner-text d-md-block d-none">
-                    <h4 class="mb-15 mt-40 text-brand">Repair Services</h4>
+                    <h4 class="mb-15 mt-40 text-brand" >Repair Services</h4>
                     <h1 class="fw-600 mb-20">We're an Apple <br>Authorised Service Provider</h1>
                     <a href="shop.html" class="btn">Learn More <i class="fi-rs-arrow-right"></i></a>
                 </div>
@@ -1039,15 +1038,18 @@
         <div class="container wow fadeIn animated">
             <h3 class="section-title mb-20"><span>Popular</span> Categories</h3>
             <div class="carausel-6-columns-cover position-relative">
-                <div class="slider-arrow slider-arrow-2 carausel-6-columns-arrow" id="carausel-6-columns-arrows"></div>
+                <div class="slider-arrow slider-arrow-2 carausel-6-columns-arrow" id="carausel-6-columns-arrows">
+
+                </div>
                 <div class="carausel-6-columns" id="carausel-6-columns">
 
                     @foreach ($categories as $category)
+                    
                     <div class="card-1">
                         <figure class=" img-hover-scale overflow-hidden">
-                            <a href=""><img src="{{asset('storage/categories/'. $category->category_image)}}" alt=""></a>
+                            <a href="{{route('frontend_shop',$category->id)}}"><img src="{{asset('storage/categories/'. $category->category_image)}}" alt=""></a>
                         </figure>
-                        <h5><a href="">{{$category->category_name}}</a></h5>
+                        <h5><a href="{{route('frontend_shop',$category->id)}}">{{$category->category_name}}</a></h5>
                     </div>
                     @endforeach
                    

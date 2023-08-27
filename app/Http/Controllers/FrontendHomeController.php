@@ -17,4 +17,11 @@ class FrontendHomeController extends Controller
         $companies=Company::all();
         return view ('frontend.f_home',compact('categories','medicines','companies','sliders'));
     }
+
+    public function shop($id){
+        $medicines=Medicine::all();
+        $categories = Category::where('id', $id)->get();
+        return view ('frontend.f_shop',compact('medicines','categories'));
+    }
+    
 }

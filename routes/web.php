@@ -136,3 +136,4 @@ Route::get('/f_master', function () {
 });
 
 Route::get('/home',[FrontendHomeController::class,'home'])->name('frontend_home');
+Route::get('/f_shop/{id}',[FrontendHomeController::class,'shop'])->name('frontend_shop');

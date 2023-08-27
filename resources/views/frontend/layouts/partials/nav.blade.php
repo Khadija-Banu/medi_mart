@@ -304,7 +304,9 @@
                                         <li class="sub-mega-menu sub-mega-menu-width-22">      
                                             <ul>   
                                                 @foreach ($categories as $category)
-                                                <li><a href="">{{$category->category_name}}</a></</li>
+                                                <li><a href="">{{$category->category_name}}
+                                                   
+                                                </a></</li>
                                                 @endforeach
                                               
                                              
