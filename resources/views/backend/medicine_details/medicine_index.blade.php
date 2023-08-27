@@ -2,12 +2,11 @@
 
 @section('content')
 
-<div class="container m-5 p-5">
+<div class="container ">
     <div class="card">
-        <div class="card-header"><h3 style="color:rgba(55,180,236,255)">Medicine List <a class="btn btn-sm btn-success" style="margin-left: 20px" href="{{route('medicine_create')}}">Add New Medicine</a></h3>
+        <div class="card-body m-4">
+          <h3 style="color:rgba(55,180,236,255)">Medicine List <a class="btn btn-sm btn-success" style="margin-left: 20px" href="{{route('medicine_create')}}">Add New Medicine</a></h3>
 
-        </div>
-        <div class="card-body">
             <table class="table" >
                 <thead >
                   <tr >
@@ -17,6 +16,7 @@
                     <th style="color:rgba(141,196,66,255)" class="fs-5">Medicine Description</th>  
                     <th style="color:rgba(141,196,66,255)" class="fs-5">Price</th>
                     <th style="color:rgba(141,196,66,255)" class="fs-5">Category Name</th>
+                    <th style="color:rgba(141,196,66,255)" class="fs-5">Company Name</th>
                     <th style="color:rgba(141,196,66,255)" class="fs-5">Store Name</th>                     
                     <th style="color:rgba(141,196,66,255)" class="fs-5">Actions</th>     
                   </tr>
@@ -40,6 +40,7 @@
                     <td>{{$medicine->medicine_description}}</td>
                     <td>{{$medicine->medicine_price}}</td>
                     <td>{{$medicine->category->category_name?? ''}}</td>
+                    <td>{{$medicine->company->company_name?? ''}}</td>
                     <td>{{$medicine->vendor->store_name?? ''}}</td>
                     <td>
                       <a class="btn btn-sm btn-warning" href="{{route('medicine_edit',$medicine->id)}}">Edit</a>

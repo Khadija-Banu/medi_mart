@@ -2,12 +2,10 @@
 
 @section('content')
 
-<div class="container m-5 p-5">
-    <div class="card">
-        <div class="card-header"><h3 style="color:rgba(55,180,236,255)">Cart List <a class="btn btn-sm btn-success" style="margin-left: 20px" href="{{route('cart_create')}}">Add New Cart</a></h3>
-
-        </div>
-        <div class="card-body">
+<div class="container ">
+    <div class="card ">
+        <div class="card-body m-4">
+          <h3 style="color:rgba(55,180,236,255)">Cart List <a class="btn btn-sm btn-success" style="margin-left: 20px" href="{{route('cart_create')}}">Add New Cart</a></h3>
             <table class="table" >
                 <thead >
                   <tr >

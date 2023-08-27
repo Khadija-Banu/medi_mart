@@ -3,17 +3,15 @@
 @section('content')
     
 
-<div class="container m-5 p-5">
+<div class="container ">
 <h2 class="text-success">{{$medicines->count()}} Results for: {{$query}}</h2>
     <div class="row ">
         @foreach ($medicines as $medicine)
         
-        <div class="container m-5 p-5">
-            <div class="card">
-                <div class="card-header"><h3 style="color:rgba(55,180,236,255)">Medicine List <a class="btn btn-sm btn-success" style="margin-left: 20px" href="{{route('medicine_create')}}">Add New Medicine</a></h3>
-        
-                </div>
+        <div class="container ">
+            <div class="card">           
                 <div class="card-body">
+                  <h3 style="color:rgba(55,180,236,255)">Medicine List <a class="btn btn-sm btn-success" style="margin-left: 20px" href="{{route('medicine_create')}}">Add New Medicine</a></h3>       
                     <table class="table" >
                         <thead >
                           <tr >

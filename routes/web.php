@@ -9,6 +9,8 @@ use App\Http\Controllers\OrderController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\SearchController;
 use App\Http\Controllers\FrontendHomeController;
+use App\Http\Controllers\CompanyController;
+use App\Http\Controllers\SliderController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -97,6 +99,30 @@ Route::prefix('cart')->group(function () {
     Route::get('/delete/{id}',[CartController::class,'delete'])->name('cart_delete');
 });
 
+//company route
+
+Route::prefix('company')->group(function () {
+    Route::get('/index',[CompanyController::class,'index'])->name('company_index');
+    Route::get('/create',[CompanyController::class,'create'])->name('company_create');
+    Route::post('/store',[CompanyController::class,'store'])->name('company_store');
+    Route::get('/edit/{id}',[CompanyController::class,'edit'])->name('company_edit');
+    Route::post('/update/{id}',[CompanyController::class,'update'])->name('company_update');
+    Route::get('/delete/{id}',[CompanyController::class,'delete'])->name('company_delete');
+});
+
+
+//slider route
+
+Route::prefix('slider')->group(function () {
+    Route::get('/index',[SliderController::class,'index'])->name('slider_index');
+    Route::get('/create',[SliderController::class,'create'])->name('slider_create');
+    Route::post('/store',[SliderController::class,'store'])->name('slider_store');
+    Route::get('/edit/{id}',[SliderController::class,'edit'])->name('slider_edit');
+    Route::post('/update/{id}',[SliderController::class,'update'])->name('slider_update');
+    Route::get('/delete/{id}',[SliderController::class,'delete'])->name('slider_delete');
+});
+
+
 //user list route
 Route::get('/user_list',[ProfileController::class,'userList'])->name('user_list');
 
@@ -110,3 +136,4 @@ Route::get('/f_master', function () {
 });
 
 Route::get('/home',[FrontendHomeController::class,'home'])->name('frontend_home');
+Route::get('/f_shop/{id}',[FrontendHomeController::class,'shop'])->name('frontend_shop');

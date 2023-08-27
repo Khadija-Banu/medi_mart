@@ -37,6 +37,7 @@
             </div>
         </div>
     </div> --}}
+
     <div class="header-middle header-middle-ptb-1 d-none d-lg-block">
         <div class="container">
             <div class="header-wrap">
@@ -301,29 +302,33 @@
                                 <li class="position-static"><a href="#">Our Collections <i class="fi-rs-angle-down"></i></a>
                                     <ul class="mega-menu">
                                         <li class="sub-mega-menu sub-mega-menu-width-22">      
-                                            <ul>                         
-                                                <li><a href="product-details.html">Wedding Dresses</a></li>
-                                                <li><a href="product-details.html">Prom Dresses</a></li>
-                                                <li><a href="product-details.html">Cosplay Costumes</a></li>
+                                            <ul>   
+                                                @foreach ($categories as $category)
+                                                <li><a href="">{{$category->category_name}}
+                                                   
+                                                </a></</li>
+                                                @endforeach
+                                              
+                                             
                                             </ul>
                                         </li>
                                      
                                         <li class="sub-mega-menu sub-mega-menu-width-34">
                                             <div class="menu-banner-wrap">
-                                                <a href="product-details.html"><img src="{{asset('ui/frontend')}}/assets/imgs/banner/menu-banner.jpg" alt="Surfside Media"></a>
+                                                <a href="product-details.html"><img src="{{asset('ui/frontend')}}/assets/imgs/banner/pain belt.jpg" style="height: 300px" alt="Surfside Media"></a>
                                                 <div class="menu-banner-content">
-                                                    <h4>Hot deals</h4>
-                                                    <h3>Don't miss<br> Trending</h3>
+                                                    <h3 style="color:rgba(55,180,236,255)">Hot deals</h3>
+                                                   
                                                     <div class="menu-banner-price">
-                                                        <span class="new-price text-success">Save to 50%</span>
+                                                        <span class="new-price " style="color:rgba(141,196,66,255)">Save to 10%</span>
                                                     </div>
                                                     <div class="menu-banner-btn">
-                                                        <a href="product-details.html">Shop now</a>
+                                                        <a href="product-details.html">Order now</a>
                                                     </div>
                                                 </div>
                                                 <div class="menu-banner-discount">
                                                     <h3>
-                                                        <span>35%</span>
+                                                        <span>5%</span>
                                                         off
                                                     </h3>
                                                 </div>

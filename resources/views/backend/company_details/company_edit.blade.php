@@ -1,7 +1,7 @@
 @extends('backend.master')
 
 @section('content')
-<div class="container ">
+<div class="container">
     <div class="card">
     <div class="card-body m-4 ">
     <h3 style="color:rgba(55,180,236,255)">Update Category<a class="btn btn-sm btn-info" style="margin-left: 20px" href="{{route('category_index')}}">Category list</a></h3>
