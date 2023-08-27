@@ -10,6 +10,7 @@ use App\Http\Controllers\CartController;
 use App\Http\Controllers\SearchController;
 use App\Http\Controllers\FrontendHomeController;
 use App\Http\Controllers\CompanyController;
+use App\Http\Controllers\SliderController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -108,6 +109,19 @@ Route::prefix('company')->group(function () {
     Route::post('/update/{id}',[CompanyController::class,'update'])->name('company_update');
     Route::get('/delete/{id}',[CompanyController::class,'delete'])->name('company_delete');
 });
+
+
+//slider route
+
+Route::prefix('slider')->group(function () {
+    Route::get('/index',[SliderController::class,'index'])->name('slider_index');
+    Route::get('/create',[SliderController::class,'create'])->name('slider_create');
+    Route::post('/store',[SliderController::class,'store'])->name('slider_store');
+    Route::get('/edit/{id}',[SliderController::class,'edit'])->name('slider_edit');
+    Route::post('/update/{id}',[SliderController::class,'update'])->name('slider_update');
+    Route::get('/delete/{id}',[SliderController::class,'delete'])->name('slider_delete');
+});
+
 
 //user list route
 Route::get('/user_list',[ProfileController::class,'userList'])->name('user_list');

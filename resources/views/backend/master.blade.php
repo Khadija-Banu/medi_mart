@@ -48,9 +48,20 @@
   @include('backend.layouts.partials.side')
   <!-- End Sidebar-->
 
-  @yield('content')
+
   
-  <!-- End #main -->
+
+
+  <main id="main" class="main">
+
+    <!-- End Page Title -->
+
+     <section class="section dashboard">
+      @yield('content')
+     </section>
+
+   </main><!-- End #main -->
+
 
   <!-- ======= Footer ======= -->
  

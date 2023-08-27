@@ -2,18 +2,17 @@
 
 @section('content')
 
-  <div class="container m-5 p-5">
-    <div class="card">
-        <div class="card-header">User List  <a class="btn btn-sm btn-primary " style="margin-left: 30px" href="{{route('medicine_index')}}">Medicine list</a> 
-          </div>
-        <div class="card-body p-5">
-            <table class="table table-sm table-bordered">
-                <thead class="table-dark">
+  <div class="container">
+    <div class="card">    
+        <div class="card-body m-4">
+          <h3 style="color:rgba(55,180,236,255)">User List  <a class="btn btn-sm btn-success" style="margin-left: 20px" href="{{route('order_create')}}">Medicine list</a></h3>
+          <table class="table" >
+                <thead >
                   <tr>
-                    <th scope="col">Ser No</th>
-                    <th scope="col">Name</th>
-                    <th>Email</th>
-                    <th>Medicine</th>                 
+                    <th style="color:rgba(141,196,66,255)" class="fs-5">Ser No</th>
+                    <th style="color:rgba(141,196,66,255)" class="fs-5">Name</th>
+                    <th style="color:rgba(141,196,66,255)" class="fs-5">Email</th>
+                    <th style="color:rgba(141,196,66,255)" class="fs-5">Medicine</th>                
                   </tr>
                 </thead>
                 <tbody>

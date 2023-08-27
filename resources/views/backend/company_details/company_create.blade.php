@@ -2,9 +2,9 @@
 
 @section('content')
 
-<div class="container m-5 p-5">
+<div class="container ">
     <div class="card">
-    <div class="card-body mt-4 ">
+    <div class="card-body m-4 ">
     <h3 style="color:rgba(55,180,236,255)">Create Company<a class="btn btn-sm btn-info" style="margin-left: 20px" href="{{route('company_index')}}">Company list</a></h3>
         
     <form action="{{route('company_store')}}" method="post" class="mt-4" enctype="multipart/form-data">

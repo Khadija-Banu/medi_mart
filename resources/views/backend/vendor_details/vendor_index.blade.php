@@ -4,10 +4,8 @@
 
 <div class="container m-5 p-5">
     <div class="card">
-        <div class="card-header"><h3 style="color:rgba(55,180,236,255)">Vendor List <a class="btn btn-sm btn-success" style="margin-left: 20px" href="{{route('vendor_create')}}">Add New Vendor</a></h3>
-
-        </div>
-        <div class="card-body">
+        <div class="card-body m-4">
+          <h3 style="color:rgba(55,180,236,255)">Vendor List <a class="btn btn-sm btn-success" style="margin-left: 20px" href="{{route('vendor_create')}}">Add New Vendor</a></h3>
             <table class="table" >
                 <thead >
                   <tr >
