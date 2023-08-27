@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\MedicineRequest;
 use App\Models\Medicine;
 use App\Models\Category;
 use App\Models\Vendor;
@@ -23,7 +24,7 @@ class MedicineController extends Controller
         return view ('backend.medicine_details.medicine_create',compact('categories','vendors'));
     }
 
-    public function store(Request $request){
+    public function store(MedicineRequest $request){
         try{
      $data=$request->all();
     
@@ -36,7 +37,7 @@ class MedicineController extends Controller
      return redirect()->route('medicine_index');
     }
     catch(Exception $e){
-     return redirect()-route('medicine_create');
+     return redirect()-route('medicine_create')->withMessage($e->getMessage());
     }
     }
 

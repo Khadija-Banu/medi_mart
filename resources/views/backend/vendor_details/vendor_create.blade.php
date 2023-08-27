@@ -10,19 +10,44 @@
     <form action="{{route('vendor_store')}}" method="post" class="mt-4" enctype="multipart/form-data">
         @csrf
             <div class="form-group mt-2">
-                <input class="form-control" type="text " name="vendor_name" placeholder="vendor name">
+                <input class="form-control" type="text " name="vendor_name" value="{{old('vendor_name')}}"  placeholder="vendor name">
+
+                @error('vendor_name')
+                <span class="text-danger">{{ $message }}</span>
+                @enderror
+
             </div>
             <div class="form-group mt-2">
-              <input class="form-control" type="text " name="store_name" placeholder="store name">
+              <input class="form-control" type="text " name="store_name" value="{{old('store_name')}}" placeholder="store name">
+
+              @error('store_name')
+                <span class="text-danger">{{ $message }}</span>
+                @enderror
+
           </div>
             <div class="form-group mt-2">
                 <input type="file" name="store_image" class="form-control" >
+
+                @error('store_image')
+                <span class="text-danger">{{ $message }}</span>
+                @enderror
+
               </div>
               <div class="form-group mt-2">
-                <input type="text" name="store_website_link" class="form-control" placeholder="store website link">
+                <input type="text" name="store_website_link" class="form-control" value="{{old('store_website_link')}}"  placeholder="store website link">
+
+                @error('store_website_link')
+                <span class="text-danger">{{ $message }}</span>
+                @enderror
+
               </div>
               <div class="form-group mt-2">
-                <input type="text" name="location" class="form-control"placeholder="location" >
+                <input type="text" name="location" class="form-control" value="{{old('location')}}" placeholder="location" >
+
+                @error('location')
+                <span class="text-danger">{{ $message }}</span>
+                @enderror
+
               </div>
               <button type="submit" class="btn btn-success mt-2">Submit</button>
             </form>

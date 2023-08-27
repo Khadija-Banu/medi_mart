@@ -9,25 +9,49 @@
     <form action="{{route('medicine_store')}}" method="post" class="mt-4" enctype="multipart/form-data">
         @csrf
             <div class="form-group mt-2">
-                <input class="form-control" type="text " name="medicine_name" placeholder="medicine name">
+                <input class="form-control" type="text " name="medicine_name"  value="{{old('medicine_name')}}" placeholder="medicine name">
+
+                @error('medicine_name')
+                <span class="text-danger">{{ $message }}</span>
+                @enderror
+
             </div>
             <div class="form-group mt-2">
-                <input type="file" name="medicine_image" class="form-control" >
+                <input type="file" name="medicine_image" class="form-control"   >
+
+                @error('medicine_image')
+                <span class="text-danger">{{ $message }}</span>
+                @enderror
+
               </div>
               <div class="form-group mt-2">
-                <input type="text" name="medicine_description" class="form-control" placeholder="medicine description">
+                <input type="text" name="medicine_description" class="form-control"  value="{{old('medicine_description')}}" placeholder="medicine description">
+
+                @error('medicine_description')
+                <span class="text-danger">{{ $message }}</span>
+                @enderror
+
               </div>
               <div class="form-group mt-2">
-                <input type="text" name="medicine_price" class="form-control"placeholder="medicine price" >
+                <input type="text" name="medicine_price" class="form-control"  value="{{old('medicine_price')}}" placeholder="medicine price" >
+
+                @error('medicine_price')
+                <span class="text-danger">{{ $message }}</span>
+                @enderror
+
               </div>
               <div class="form-group mt-2">
                 <select class="form-select" name="category_id" >
                   <option value="">Select category name</option>
                   @foreach ($categories as $category)
                   <option value="{{$category->id}}" >{{$category->category_name}}</option>
-                  @endforeach
-              
+                  @endforeach             
                 </select>
+
+                @error('category_id')
+                <span class="text-danger">{{ $message }}</span>
+                @enderror
+
               </div>
 
               <div class="form-group mt-2">
@@ -35,9 +59,12 @@
                   <option value="">Select store name</option>
                   @foreach ($vendors as $vendor)
                   <option value="{{$vendor->id}}" >{{$vendor->store_name}}</option>
-                  @endforeach
-              
+                  @endforeach             
                 </select>
+
+                @error('vendor_id')
+                <span class="text-danger">{{ $message }}</span>
+                @enderror
               </div>
       
               <button type="submit" class="btn btn-success mt-2">Submit</button>

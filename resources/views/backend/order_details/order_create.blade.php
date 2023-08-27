@@ -10,15 +10,29 @@
     <form action="{{route('order_store')}}" method="post" class="mt-4" enctype="multipart/form-data">
         @csrf
 
-      
             <div class="form-group mt-2">
-                <input class="form-control" type="text " name="status" placeholder="status">
+                <input class="form-control" type="text " name="status" value="{{old('status')}}" placeholder="status">
+
+                @error('status')
+                <span class="text-danger">{{ $message }}</span>
+                @enderror
+
             </div>
             <div class="form-group mt-2">
-              <input class="form-control" type="text " name="address" placeholder="address">
+              <input class="form-control" type="text " name="address" value="{{old('address')}}" placeholder="address">
+
+              @error('address')
+              <span class="text-danger">{{ $message }}</span>
+              @enderror
+
           </div>
               <div class="form-group mt-2">
-                <input type="text" name="mobile_no" class="form-control" placeholder="mobile no">
+                <input type="text" name="mobile_no" class="form-control" value="{{old('mobile_no')}}" placeholder="mobile no">
+
+                @error('mobile_no')
+                <span class="text-danger">{{ $message }}</span>
+                @enderror
+
               </div>
               <div class="form-group mt-2">
                 <select class="form-select" name="user_id" >
@@ -27,6 +41,11 @@
                   <option value="{{$user->id}}" >{{$user->name}}</option>
                   @endforeach        
                 </select>
+
+                @error('user_id')
+                <span class="text-danger">{{ $message }}</span>
+                @enderror
+
               </div>
               <button type="submit" class="btn btn-success mt-2">Submit</button>
             </form>

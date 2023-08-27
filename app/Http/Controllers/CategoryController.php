@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\CategoryRequest;
 use App\Models\Category;
 use Illuminate\Support\Carbon;
 use Image;
@@ -18,7 +19,7 @@ class CategoryController extends Controller
         return view ('backend.category_details.category_create');
     }
 
-    public function store(Request $request){
+    public function store(CategoryRequest $request){
            try{
       
         $data=$request->all();
@@ -32,7 +33,7 @@ class CategoryController extends Controller
         return redirect()->route('category_index');
        }
        catch(Exception $e){
-        return redirect()-route('category_create');
+        return redirect()-route('category_create')->withMessage($e->getMessage());
        }
     }
 
