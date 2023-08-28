@@ -16,9 +16,15 @@
             <div class="row">
                 <div class="col-lg-9">
                     <div class="shop-product-fillter">
+
+
+                        @foreach ($categories as $category)
+                        @foreach ($category->medicines as $medicine)
                         <div class="totall-product">
-                            <p> We found <strong class="text-brand">688</strong> items for you!</p>
+                            <p> We found <strong class="text-brand">{{$category->medicines->count()}}</strong> items for you!</p>
                         </div>
+                        @endforeach
+                        @endforeach
                         <div class="sort-by-product-area">
                             <div class="sort-by-cover mr-10">
                                 <div class="sort-by-product-wrap">
@@ -47,11 +53,12 @@
                     <div class="row product-grid-3">
                     @foreach ($categories as $category)
                     @foreach ($category->medicines as $medicine)
+                   
                         <div class="col-lg-4 col-md-4 col-6 col-sm-6">
                             <div class="product-cart-wrap mb-30">
                                 <div class="product-img-action-wrap">
                                     <div class="product-img product-img-zoom">
-                                        <a href="product-details.html">
+                                        <a href="{{route('frontend_product',$medicine->id)}}">
                                             <img class="default-img" src="{{asset('storage/medicines/'. $medicine->medicine_image)}}" alt="">
                                             <img class="hover-img" src="assets/imgs/shop/product-2-2.jpg" alt="">
                                         </a>
@@ -93,28 +100,10 @@
 
 
 
-                    
+  
                   
                 </div>
-                <div class="col-lg-3 primary-sidebar sticky-sidebar">
-                    <div class="row">
-                        <div class="col-lg-12 col-mg-6"></div>
-                        <div class="col-lg-12 col-mg-6"></div>
-                    </div>
-                    <div class="widget-category mb-30">
-                        <h5 class="section-title style-1 mb-30 wow fadeIn animated">Category</h5>
-                        <ul class="categories">
-                            <li><a href="shop.html">Shoes & Bags</a></li>
-                            <li><a href="shop.html">Blouses & Shirts</a></li>
-                            <li><a href="shop.html">Dresses</a></li>
-                            <li><a href="shop.html">Swimwear</a></li>
-                            <li><a href="shop.html">Beauty</a></li>
-                            <li><a href="shop.html">Jewelry & Watch</a></li>
-                            <li><a href="shop.html">Accessories</a></li>
-                        </ul>
-                    </div>
-                  
-                </div>
+       
             </div>
         </div>
     </section>

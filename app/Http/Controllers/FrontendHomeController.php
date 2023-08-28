@@ -23,5 +23,11 @@ class FrontendHomeController extends Controller
         $categories = Category::where('id', $id)->get();
         return view ('frontend.f_shop',compact('medicines','categories'));
     }
+
+    public function product($id){
+        $medicines=Medicine::where('id', $id)->get();
+        $categories=Category::all();
+        return view ('frontend.f_product_details',compact('categories','medicines'));
+    }
     
 }

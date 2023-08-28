@@ -1107,7 +1107,7 @@
                      
                         <div class="product-img-action-wrap">
                             <div class="product-img product-img-zoom">
-                                <a href="product-details.html">
+                                <a href="{{route('frontend_product',$medicine->id)}}">
                                     <img  style="height: 200px" class="default-img" src="{{asset('storage/medicines/'. $medicine->medicine_image)}}" alt="">                                  
                                 </a>
                             </div>
