@@ -9,11 +9,11 @@
             <table class="table" >
                 <thead >
                   <tr >
-                    <th style="color:rgba(141,196,66,255)" class="fs-5">Ser No</th>
-                    <th style="color:rgba(141,196,66,255)" class="fs-5">Slider Name</th> 
-                    <th style="color:rgba(141,196,66,255)" class="fs-5">Slider Image</th>  
-                    <th style="color:rgba(141,196,66,255)" class="fs-5">Slider Description</th> 
-                    <th style="color:rgba(141,196,66,255)" class="fs-5">Actions</th>     
+                    <th style="color:rgba(141,196,66,255)" >Ser No</th>
+                    <th style="color:rgba(141,196,66,255)" >Slider Name</th> 
+                    <th style="color:rgba(141,196,66,255)" >Slider Image</th>  
+                    <th style="color:rgba(141,196,66,255)" >Slider Description</th> 
+                    <th style="color:rgba(141,196,66,255)" >Actions</th>     
                   </tr>
                 </thead>
                 <tbody>

@@ -6,9 +6,11 @@ use Illuminate\Http\Request;
 use App\Http\Requests\CartRequest;
 use App\Models\Cart;
 use App\Models\User;
+use App\Models\Category;
 use App\Models\Medicine;
 use Illuminate\Support\Carbon;
 use Image;
+use Illuminate\Support\Facades\DB;
 
 class CartController extends Controller
 {
@@ -24,15 +26,31 @@ class CartController extends Controller
     }
 
 
-    public function store(CartRequest $request){
-        try{
-     $data=$request->all();
-     Cart::create($data);
-     return redirect()->route('cart_index');
-    }
-    catch(Exception $e){
-     return redirect()-route('cart_create')->withMessage($e->getMessage());
-    }
+    public function store(Request $request){
+
+        $medicine = Medicine::find($request->medicine_id);
+     
+    
+
+        DB::table('carts')->insert([
+            'medicine_id' => $medicine->id, 
+            'user_id' => auth()->user()->id,
+            'unit_price' => $medicine->medicine_price,
+            'quantity' => $request->quantity,
+            'total_price' =>( $medicine->medicine_price * $request->quantity ) ?? 0
+
+          
+        ]);
+        return redirect()->back();
+
+    //     try{
+    //  $data=$request->all();
+    //  Cart::create($data);
+    //  return redirect()->route('cart_index');
+    // }
+    // catch(Exception $e){
+    //  return redirect()-route('cart_create')->withMessage($e->getMessage());
+    // }
     }
 
     public function edit($id){
@@ -63,4 +81,18 @@ class CartController extends Controller
         return redirect()->back();
         
     }
+
+    public function cartItems()
+    { 
+      
+        $medicines = Medicine::all();
+
+        $categories = Category::all();
+
+        $cartItems  = DB::table('carts')->where('user_id', auth()->user()->id)->get();
+
+
+        return view('frontend.f_cart',compact('cartItems','medicines','categories'));
+    }
+
 }

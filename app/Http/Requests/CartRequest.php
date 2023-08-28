@@ -23,10 +23,6 @@ class CartRequest extends FormRequest
     {
         return [
             'quantity'=> 'required',
-            'unit_price' => 'required',
-            'total_price'=> 'required',
-            'user_id' => 'required',
-            'medicine_id'=> 'required',
         
         ];
     }

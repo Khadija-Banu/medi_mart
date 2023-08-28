@@ -35,60 +35,71 @@
                                 <!-- End Gallery -->
  
                             </div>
-                            <div class="col-md-6 col-sm-12 col-xs-12">
-                                <div class="detail-info">
-                                    <h2 class="title-detail">{{$medicine->medicine_name}}</h2>
-                                    <div class="product-detail-rating">
-                                        <div class="pro-details-brand">
-                                            <span> Brands: <a href="shop.html">Bootstrap</a></span>
-                                        </div>
-                                        <div class="product-rate-cover text-end">
-                                            <div class="product-rate d-inline-block">
-                                                <div class="product-rating" style="width:90%">
-                                                </div>
+                          
+ 
+
+                                <div class="col-md-6 col-sm-12 col-xs-12">
+                                    <form action="{{route('cart_store')}}" method="POST">
+                                        @csrf
+                                    
+                                    <div class="detail-info">
+                                        <h2 class="title-detail">{{$medicine->medicine_name}}</h2>
+                                        <input type="hidden" name="medicine_id" value="{{$medicine->id}}">
+                                        <div class="product-detail-rating">
+                                            <div class="pro-details-brand">
+                                                <span> Brands: <a href="">{{$medicine->company->company_name?? ''}}</a></span>
                                             </div>
-                                            <span class="font-small ml-5 text-muted"> (25 reviews)</span>
+                                            <div class="product-rate-cover text-end">
+                                                <div class="product-rate d-inline-block">
+                                                    <div class="product-rating" style="width:90%">
+                                                    </div>
+                                                </div>
+                                                <span class="font-small ml-5 text-muted"> (25 reviews)</span>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="clearfix product-price-cover">
-                                        <div class="product-price primary-color float-left">
-                                            <ins><span class="text-brand">${{$medicine->medicine_price}}</span></ins>
+
+
+
+                                        <div class="clearfix product-price-cover">
+                                            <div class="product-price primary-color float-left">
+                                                <ins><span class="text-brand">${{$medicine->medicine_price}}</span></ins>
+                                             
+                                            </div>
+                                        </div>
+                                        <div class="bt-1 border-color-1 mt-15 mb-15"></div>
+                                        <div class="short-desc mb-30">
+                                            <p>{{$medicine->medicine_description}}</p>
+                                        </div>
+                                        <div class="product_sort_info font-xs mb-30">
+                                            <ul>
+                                               
+                                                <li class="mb-10"><i class="fi-rs-refresh mr-5"></i> 30 Day Return Policy</li>
+                                                <li><i class="fi-rs-credit-card mr-5"></i> Cash on Delivery available</li>
+                                            </ul>
+                                        </div>
+                                      
+                                       
+                                    
+                                        <div class="detail-extralink" >
                                          
+                                              <div> <input type="number"  name='quantity' value="1" w-25></div>
+                                              <div>  <button type="submit" class="button button-add-to-cart">Add to cart</button>
+                                              </div>  
+                                         
+                                                                           
+                                              
                                         </div>
-                                    </div>
-                                    <div class="bt-1 border-color-1 mt-15 mb-15"></div>
-                                    <div class="short-desc mb-30">
-                                        <p>{{$medicine->medicine_description}}</p>
-                                    </div>
-                                    <div class="product_sort_info font-xs mb-30">
-                                        <ul>
-                                           
-                                            <li class="mb-10"><i class="fi-rs-refresh mr-5"></i> 30 Day Return Policy</li>
-                                            <li><i class="fi-rs-credit-card mr-5"></i> Cash on Delivery available</li>
+                                       </form>
+                                        <span> Store Name: <span class="text-brand">{{$medicine->vendor->store_name?? ''}}
+                                            </span></span>
+                                        <ul class="product-meta font-xs color-grey mt-50">
+                                         
+                                            <li>Availability:<span class="in-stock text-success ml-5">8 Items In Stock</span></li>
                                         </ul>
                                     </div>
-                                  
-                                
-                                    <div class="bt-1 border-color-1 mt-30 mb-30"></div>
-                                    <div class="detail-extralink">
-                                        <div class="detail-qty border radius">
-                                            <a href="#" class="qty-down"><i class="fi-rs-angle-small-down"></i></a>
-                                            <span class="qty-val">1</span>
-                                            <a href="#" class="qty-up"><i class="fi-rs-angle-small-up"></i></a>
-                                        </div>
-                                        <div class="product-extra-link2">
-                                            <button type="submit" class="button button-add-to-cart">Add to cart</button>
-                                            <a aria-label="Add To Wishlist" class="action-btn hover-up" href="wishlist.php"><i class="fi-rs-heart"></i></a>
-                                            <a aria-label="Compare" class="action-btn hover-up" href="compare.php"><i class="fi-rs-shuffle"></i></a>
-                                        </div>
-                                    </div>
-                                    <ul class="product-meta font-xs color-grey mt-50">
-                                     
-                                        <li>Availability:<span class="in-stock text-success ml-5">8 Items In Stock</span></li>
-                                    </ul>
+                                    <!-- Detail Info -->
                                 </div>
-                                <!-- Detail Info -->
-                            </div>
+                          
                         </div>
                         <div class="tab-style3">
                             <ul class="nav nav-tabs text-uppercase">

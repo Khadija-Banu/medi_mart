@@ -9,11 +9,11 @@
             <table class="table" >
                 <thead >
                   <tr >
-                    <th style="color:rgba(141,196,66,255)" class="fs-5">Ser No</th>
-                    <th style="color:rgba(141,196,66,255)" class="fs-5">Company Name</th> 
-                    <th style="color:rgba(141,196,66,255)" class="fs-5">Company Image</th>  
-                    <th style="color:rgba(141,196,66,255)" class="fs-5">Medicine item</th> 
-                    <th style="color:rgba(141,196,66,255)" class="fs-5">Actions</th>     
+                    <th style="color:rgba(141,196,66,255)" >Ser No</th>
+                    <th style="color:rgba(141,196,66,255)" >Company Name</th> 
+                    <th style="color:rgba(141,196,66,255)">Company Image</th>  
+                    <th style="color:rgba(141,196,66,255)" >Medicine item</th> 
+                    <th style="color:rgba(141,196,66,255)" >Actions</th>     
                   </tr>
                 </thead>
                 <tbody>
@@ -32,11 +32,11 @@
                       @endif
                     </td>
 
-                    {{-- <td>
+                    <td>
                       @foreach ($company->medicines as $medicine)
                       <li>{{$medicine->medicine_name}}</li>  
                       @endforeach
-                  </td> --}}
+                  </td>
 
                     <td>
                       <a class="btn btn-sm btn-warning" href="{{route('company_edit',$company->id)}}">Edit</a>

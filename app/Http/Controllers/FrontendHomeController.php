@@ -7,6 +7,7 @@ use App\Models\Category;
 use App\Models\Medicine;
 use App\Models\Company;
 use App\Models\Slider;
+use App\Models\Cart;
 
 class FrontendHomeController extends Controller
 {
@@ -25,9 +26,10 @@ class FrontendHomeController extends Controller
     }
 
     public function product($id){
+        $myItems=Cart::where('user_id',auth()->user()->id)->count();
         $medicines=Medicine::where('id', $id)->get();
         $categories=Category::all();
-        return view ('frontend.f_product_details',compact('categories','medicines'));
+        return view ('frontend.f_product_details',compact('categories','medicines','myItems'));
     }
     
 }

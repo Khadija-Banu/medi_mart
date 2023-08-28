@@ -9,11 +9,11 @@
             <table class="table" >
                 <thead >
                   <tr >
-                    <th style="color:rgba(141,196,66,255)" class="fs-5">Ser No</th>
-                    <th style="color:rgba(141,196,66,255)" class="fs-5">Category Name</th> 
-                    <th style="color:rgba(141,196,66,255)" class="fs-5">Category Image</th>  
-                    <th style="color:rgba(141,196,66,255)" class="fs-5">Medicine item</th> 
-                    <th style="color:rgba(141,196,66,255)" class="fs-5">Actions</th>     
+                    <th style="color:rgba(141,196,66,255)" >Ser No</th>
+                    <th style="color:rgba(141,196,66,255)" >Category Name</th> 
+                    <th style="color:rgba(141,196,66,255)" >Category Image</th>  
+                    <th style="color:rgba(141,196,66,255)" >Medicine item</th> 
+                    <th style="color:rgba(141,196,66,255)" >Actions</th>     
                   </tr>
                 </thead>
                 <tbody>

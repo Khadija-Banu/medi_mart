@@ -28,7 +28,7 @@
 
   <!-- Template Main CSS File -->
   <link href="{{asset('ui/backend')}}/assets/css/style.css" rel="stylesheet">
-
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
   <!-- =======================================================
   * Template Name: NiceAdmin
   * Updated: Jul 27 2023 with Bootstrap v5.3.1

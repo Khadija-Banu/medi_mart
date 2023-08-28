@@ -2,20 +2,20 @@
 
 @section('content')
 
-<div class="container m-5 p-5">
+<div class="container ">
     <div class="card">
         <div class="card-body m-4">
           <h3 style="color:rgba(55,180,236,255)">Vendor List <a class="btn btn-sm btn-success" style="margin-left: 20px" href="{{route('vendor_create')}}">Add New Vendor</a></h3>
             <table class="table" >
                 <thead >
                   <tr >
-                    <th style="color:rgba(141,196,66,255)" class="fs-5">Ser No</th>
-                    <th style="color:rgba(141,196,66,255)" class="fs-5">Vendor Name</th> 
-                    <th style="color:rgba(141,196,66,255)" class="fs-5">Store Name</th> 
-                    <th style="color:rgba(141,196,66,255)" class="fs-5">Store Image</th> 
-                    <th style="color:rgba(141,196,66,255)" class="fs-5">Store Website Link</th>  
-                    <th style="color:rgba(141,196,66,255)" class="fs-5">Location</th>                     
-                   <th style="color:rgba(141,196,66,255)" class="fs-5">Actions</th>     
+                    <th style="color:rgba(141,196,66,255)" >Ser No</th>
+                    <th style="color:rgba(141,196,66,255)" >Vendor Name</th> 
+                    <th style="color:rgba(141,196,66,255)" >Store Name</th> 
+                    <th style="color:rgba(141,196,66,255)" >Store Image</th> 
+                    <th style="color:rgba(141,196,66,255)" >Store Website Link</th>  
+                    <th style="color:rgba(141,196,66,255)" >Location</th>                     
+                   <th style="color:rgba(141,196,66,255)" >Actions</th>     
                   </tr>
                 </thead>
                 <tbody>
