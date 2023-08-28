@@ -20,10 +20,10 @@ class Medicine extends Model
         return $this->belongsTo(Category::class);
     }
 
-    public function cart()
-    {
-        return $this->hasOne(Cart::class);
-    }
+    // public function carts()
+    // {
+    //     return $this->belongsTo(Cart::class);
+    // }
 
     public function vendor()
     {
@@ -32,5 +32,9 @@ class Medicine extends Model
     public function company()
     {
         return $this->belongsTo(Company::class);
+    }
+     //One to many relation User to Post
+     public function carts(){
+        return $this->hasMany(Medicine::class);
     }
 }

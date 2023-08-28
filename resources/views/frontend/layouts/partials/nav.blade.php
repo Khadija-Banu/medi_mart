@@ -8,8 +8,8 @@
                 </div>
                 <div class="header-right">
                     <div class="search-style-1">
-                        <form action="#">                                
-                            <input type="text" placeholder="Search for items...">
+                        <form action="{{route('search')}}">                                
+                            <input type="text" name="query" placeholder="Search for items...">
                         </form>
                     </div>
                     <div class="header-action-right">
@@ -17,13 +17,19 @@
                             <div class="header-action-icon-2">
                                 <a href="shop-wishlist.php">
                                     <img class="svgInject" alt="Surfside Media" src="{{asset('ui/frontend')}}/assets/imgs/theme/icons/icon-heart.svg">
-                                    <span class="pro-count blue">4</span>
+                                    <span class="pro-count blue">8</span>
                                 </a>
                             </div>
                             <div class="header-action-icon-2">
-                                <a class="mini-cart-icon" href="cart.html">
+                                <a class="mini-cart-icon" href="{{route('cart_items')}}">
                                     <img alt="Surfside Media" src="{{asset('ui/frontend')}}/assets/imgs/theme/icons/icon-cart.svg">
-                                    <span class="pro-count blue">2</span>
+                                    <span class="pro-count blue">
+
+                                        @isset($myItems)
+                                        {{ $myItems ?? 0 }}
+                                      @endisset
+                    
+                                    </span>
                                 </a>
                                 <div class="cart-dropdown-wrap cart-dropdown-hm2">
                                     <ul>
@@ -57,7 +63,7 @@
                                             <h4>Total <span>$4000.00</span></h4>
                                         </div>
                                         <div class="shopping-cart-button">
-                                            <a href="cart.html" class="outline">View cart</a>
+                                            <a href="{{route('cart_items')}}" class="outline">View cart</a>
                                             <a href="checkout.html">Checkout</a>
                                         </div>
                                     </div>
@@ -303,7 +309,7 @@
                                 <li><a href="#">My Account<i class="fi-rs-angle-down"></i></a>
                                     <ul class="sub-menu">
                                         <li><a href="#">Dashboard</a></li>
-                                        <li><a href="#">Products</a></li>
+                                        <li><a href="#">Medicines</a></li>
                                         <li><a href="#">Categories</a></li>
                                         <li><a href="#">Orders</a></li>
                                         <li><a href="#">Customers</a></li>

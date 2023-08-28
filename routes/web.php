@@ -97,6 +97,7 @@ Route::prefix('cart')->group(function () {
     Route::get('/edit/{id}',[CartController::class,'edit'])->name('cart_edit');
     Route::post('/update/{id}',[CartController::class,'update'])->name('cart_update');
     Route::get('/delete/{id}',[CartController::class,'delete'])->name('cart_delete');
+    Route::get('/cart_item_list', [CartController::class, 'cartItems'])->name('cart_items');
 });
 
 //company route
@@ -128,6 +129,7 @@ Route::get('/user_list',[ProfileController::class,'userList'])->name('user_list'
 
 
 Route::get('/search',[SearchController::class,'medicine_search'])->name('search');
+// Route::get('/f_search',[SearchController::class,'f_medicine_search'])->name('f_search');
 
 
 //Frontend Route

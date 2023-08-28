@@ -9,13 +9,13 @@
             <table class="table" >
                 <thead >
                   <tr >
-                    <th style="color:rgba(141,196,66,255)" class="fs-5">Ser No</th>
-                    <th style="color:rgba(141,196,66,255)" class="fs-5"> Quantity</th> 
-                    <th style="color:rgba(141,196,66,255)" class="fs-5">Unit price</th> 
-                    <th style="color:rgba(141,196,66,255)" class="fs-5">Total price</th> 
-                    <th style="color:rgba(141,196,66,255)" class="fs-5">User Name</th>   
-                    <th style="color:rgba(141,196,66,255)" class="fs-5">Medicine Name</th>                               
-                   <th style="color:rgba(141,196,66,255)" class="fs-5">Actions</th>     
+                    <th style="color:rgba(141,196,66,255)" >Ser No</th>
+                    <th style="color:rgba(141,196,66,255)" > Quantity</th> 
+                    <th style="color:rgba(141,196,66,255)">Unit price</th> 
+                    <th style="color:rgba(141,196,66,255)" >Total price</th> 
+                    <th style="color:rgba(141,196,66,255)" >User Name</th>   
+                    <th style="color:rgba(141,196,66,255)" >Medicine Name</th>                               
+                   <th style="color:rgba(141,196,66,255)" >Actions</th>     
                   </tr>
                 </thead>
                 <tbody>

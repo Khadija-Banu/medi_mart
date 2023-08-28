@@ -9,12 +9,12 @@
             <table class="table" >
                 <thead >
                   <tr >
-                    <th style="color:rgba(141,196,66,255)" class="fs-5">Ser No</th>
-                    <th style="color:rgba(141,196,66,255)" class="fs-5"> Status</th> 
+                    <th style="color:rgba(141,196,66,255)" >Ser No</th>
+                    <th style="color:rgba(141,196,66,255)" > Status</th> 
                     <th style="color:rgba(141,196,66,255)" class="fs-5">Address</th> 
-                    <th style="color:rgba(141,196,66,255)" class="fs-5">Mobile No</th> 
-                    <th style="color:rgba(141,196,66,255)" class="fs-5">User Name</th>                                
-                   <th style="color:rgba(141,196,66,255)" class="fs-5">Actions</th>     
+                    <th style="color:rgba(141,196,66,255)" >Mobile No</th> 
+                    <th style="color:rgba(141,196,66,255)" >User Name</th>                                
+                   <th style="color:rgba(141,196,66,255)" >Actions</th>     
                   </tr>
                 </thead>
                 <tbody>

@@ -10,15 +10,15 @@
             <table class="table" >
                 <thead >
                   <tr >
-                    <th style="color:rgba(141,196,66,255)" class="fs-5">Ser No</th>
-                    <th style="color:rgba(141,196,66,255)" class="fs-5">Medicine Name</th> 
-                    <th style="color:rgba(141,196,66,255)" class="fs-5">Medicine Image</th> 
-                    <th style="color:rgba(141,196,66,255)" class="fs-5">Medicine Description</th>  
-                    <th style="color:rgba(141,196,66,255)" class="fs-5">Price</th>
-                    <th style="color:rgba(141,196,66,255)" class="fs-5">Category Name</th>
-                    <th style="color:rgba(141,196,66,255)" class="fs-5">Company Name</th>
-                    <th style="color:rgba(141,196,66,255)" class="fs-5">Store Name</th>                     
-                    <th style="color:rgba(141,196,66,255)" class="fs-5">Actions</th>     
+                    <th style="color:rgba(141,196,66,255)" >Ser No</th>
+                    <th style="color:rgba(141,196,66,255)">Medicine Name</th> 
+                    <th style="color:rgba(141,196,66,255)" >Medicine Image</th> 
+                    <th style="color:rgba(141,196,66,255)" >Medicine Description</th>  
+                    <th style="color:rgba(141,196,66,255)" >Price</th>
+                    <th style="color:rgba(141,196,66,255)" >Category Name</th>
+                    <th style="color:rgba(141,196,66,255)" >Company Name</th>
+                    <th style="color:rgba(141,196,66,255)" >Store Name</th>                     
+                    <th style="color:rgba(141,196,66,255)">Actions</th>     
                   </tr>
                 </thead>
                 <tbody>
