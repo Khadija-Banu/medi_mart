@@ -3,40 +3,63 @@
 @section('content')
     
 
-        <div class="container">
+        <div class="container p-5">
 
           <section class="popular-categories section-padding mt-15 mb-25">
             <div class="container wow fadeIn animated">
-              <h4 >{{$medicines->count()}} Results for: {{$query}}</h4>
+              <h4 style="color:rgba(141,196,66,255)">{{$medicines->count()}} Results for: {{$query}}</h4>
+
+            <div class="container mt-4">
+              <table class="table" >
+                <thead >
+                  <tr >
+                    <th style="color:rgba(141,196,66,255)" >Ser No</th>
+                    <th style="color:rgba(141,196,66,255)">Medicine Name</th> 
+                    <th style="color:rgba(141,196,66,255)" >Medicine Image</th> 
+                    <th style="color:rgba(141,196,66,255)" >Price</th>
+                
+                    <th style="color:rgba(141,196,66,255)" >Company Name</th>
+                    <th style="color:rgba(141,196,66,255)" >Store Name</th>  
+                    <th style="color:rgba(141,196,66,255)" >Location</th>                   
+                  
+                  </tr>
+                </thead>
+                <tbody>
+                  @php
+                      $id=1;
+                  @endphp
+                  @foreach ($medicines as $medicine)
+                  <tr>             
+                    <td>{{$id++}}</td>
+                    <td>{{$medicine->medicine_name}}</td>
+                    <td>
+                      @if(file_exists(storage_path().'/app/public/medicines/'.$medicine->medicine_image) &&(!is_null($medicine->medicine_image)))
+                      <img src="{{asset('storage/medicines/'. $medicine->medicine_image)}}"height="100px"width="150px">
+                      @else         
+                      <img src="{{asset('storage/categories/default.jpg')}}"height="100px" width="150px">
+                      @endif
+                    </td>
+                    <td>{{$medicine->medicine_price}}</td>
+                  
+                    <td>{{$medicine->company->company_name?? ''}}</td>
+                    <td>{{$medicine->vendor->store_name?? ''}}</td>
+                    <td>{{$medicine->vendor->location ?? ''}}</td>
+                
+                  </tr>  
+                  @endforeach      
+                </tbody>
+              </table>
+        {{-- pegination link show
+        {{ $categories->links() }}  --}}
 
 
-               
-                <div class="carausel-6-columns-cover position-relative">
-                    <div class="slider-arrow slider-arrow-2 carausel-6-columns-arrow" id="carausel-6-columns-arrows">
+
+      </div> 
     
-                    </div>
-                    <div class="carausel-6-columns" id="carausel-6-columns">
-    
-                      @foreach ($medicines as $medicine)
-                        
-                        <div class="card-1">
-                            <figure class=" img-hover-scale overflow-hidden">
-                                <a href="{{route('frontend_shop',$medicine->id)}}"><img src="{{asset('storage/medicines/'. $medicine->medicine_image)}}" alt=""></a>
-                            </figure>
-                            <h5><a href="{{route('frontend_shop',$medicine->id)}}">Name:{{$medicine->medicine_name}}</a></h5>
-                            <h5><a href="{{route('frontend_shop',$medicine->id)}}">${{$medicine->medicine_price}}</a></h5>
-                            <h5><a href="{{route('frontend_shop',$medicine->id)}}">{{$medicine->vendor->store_name?? ''}}</a></h5>
-                            <h5><a href="{{route('frontend_shop',$medicine->id)}}">Location:{{$medicine->vendor->location?? ''}}</a></h5>
-                        </div>
-                        @endforeach
-                       
-                       
-                    </div>
-                </div>
             </div>
         </section>
         
-    
+      </div> 
       
       
 

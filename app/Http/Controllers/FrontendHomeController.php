@@ -18,6 +18,12 @@ class FrontendHomeController extends Controller
         $companies=Company::all();
         return view ('frontend.f_home',compact('categories','medicines','companies','sliders'));
     }
+    public function about(){
+        $categories=Category::all();
+        $medicines=Medicine::all();
+        $companies=Company::all();
+        return view ('frontend.f_about',compact('categories','medicines','companies'));
+    }
 
     public function shop($id){
         $medicines=Medicine::all();
@@ -32,6 +38,13 @@ class FrontendHomeController extends Controller
         return view ('frontend.f_product_details',compact('categories','medicines','myItems'));
     }
 
+    public function contact(){
+        $categories=Category::all();
+        $medicines=Medicine::all();
+        return view ('frontend.f_contact',compact('categories','medicines'));
+    }
+
+  
     public function checkout(){
         $categories=Category::all();
         $cartItems=Cart::with('medicine')->where('user_id',auth()->user()->id)->get();

@@ -264,8 +264,8 @@
                     <div class="main-menu main-menu-padding-1 main-menu-lh-2 d-none d-lg-block">
                         <nav>
                             <ul>
-                                <li><a class="active" href="index.html">Home </a></li>
-                                <li><a href="about.html">About</a></li>
+                                <li><a class="active" href="{{route('frontend_home')}}">Home </a></li>
+                                <li><a href="{{route('frontend_about')}}">About</a></li>
                                 
                                 <li class="position-static"><a href="#">Our Collections <i class="fi-rs-angle-down"></i></a>
                                     <ul class="mega-menu">
@@ -281,31 +281,10 @@
                                             </ul>
                                         </li>
                                      
-                                        <li class="sub-mega-menu sub-mega-menu-width-34">
-                                            <div class="menu-banner-wrap">
-                                                <a href="product-details.html"><img src="{{asset('ui/frontend')}}/assets/imgs/banner/pain belt.jpg" style="height: 300px" alt="Surfside Media"></a>
-                                                <div class="menu-banner-content">
-                                                    <h3 style="color:rgba(55,180,236,255)">Hot deals</h3>
-                                                   
-                                                    <div class="menu-banner-price">
-                                                        <span class="new-price " style="color:rgba(141,196,66,255)">Save to 10%</span>
-                                                    </div>
-                                                    <div class="menu-banner-btn">
-                                                        <a href="product-details.html">Order now</a>
-                                                    </div>
-                                                </div>
-                                                <div class="menu-banner-discount">
-                                                    <h3>
-                                                        <span>5%</span>
-                                                        off
-                                                    </h3>
-                                                </div>
-                                            </div>
-                                        </li>
                                     </ul>
                                 </li>
                                                                
-                                <li><a href="contact.html">Contact</a></li>
+                                <li><a href="{{route('frontend_contact')}}">Contact</a></li>
                                 <li><a href="#">My Account<i class="fi-rs-angle-down"></i></a>
                                     <ul class="sub-menu">
                                         <li><a href="#">Dashboard</a></li>

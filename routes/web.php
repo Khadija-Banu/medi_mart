@@ -23,9 +23,7 @@ use App\Http\Controllers\SslCommerzPaymentController;
 |
 */
 
-Route::get('/master', function () {
-    return view('backend.master');
-});
+
 Route::get('/', function () {
     return view('welcome');
 });
@@ -139,7 +137,11 @@ Route::get('/f_master', function () {
 });
 
 Route::get('/home',[FrontendHomeController::class,'home'])->name('frontend_home');
+Route::get('/about',[FrontendHomeController::class,'about'])->name('frontend_about');
 Route::get('/f_shop/{id}',[FrontendHomeController::class,'shop'])->name('frontend_shop');
+Route::get('/contact',[FrontendHomeController::class,'contact'])->name('frontend_contact');
+
+
 Route::get('/product_details/{id}',[FrontendHomeController::class,'product'])->name('frontend_product');
 
 Route::get('/f_checkout',[FrontendHomeController::class,'checkout'])->name('frontend_checkout');
