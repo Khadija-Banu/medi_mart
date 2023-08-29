@@ -29,17 +29,17 @@ class CartController extends Controller
     public function store(Request $request){
 
         $medicine = Medicine::find($request->medicine_id);
-     
-    
+
+
 
         DB::table('carts')->insert([
-            'medicine_id' => $medicine->id, 
+            'medicine_id' => $medicine->id,
             'user_id' => auth()->user()->id,
             'unit_price' => $medicine->medicine_price,
             'quantity' => $request->quantity,
             'total_price' =>( $medicine->medicine_price * $request->quantity ) ?? 0
 
-          
+
         ]);
         return redirect()->back();
 
@@ -69,7 +69,7 @@ class CartController extends Controller
             return redirect()->route('cart_index');
         }catch(Exception $e){
             dd($e->getMessage());
-        }  
+        }
     }
 
 
@@ -79,10 +79,11 @@ class CartController extends Controller
         $data=Cart::find($id);
         $data->delete();
         return redirect()->back();
-        
+
     }
 
     public function cartItems()
+
     { 
 
         $categories = Category::all();
