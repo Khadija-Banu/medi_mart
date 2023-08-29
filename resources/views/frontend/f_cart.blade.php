@@ -32,6 +32,7 @@
                             <tbody>
                                 @foreach ($cartItems as $item)
 
+
                                 <tr>
                                     <td class="image product-thumbnail"><img src="{{asset('storage/medicines/'. $item->medicine->medicine_image)}}" alt="#"></td>
                                     <td class="product-des product-name">
@@ -48,7 +49,7 @@
                                 </tr>
 
                                 @endforeach
-                 
+
                                     <td colspan="6" class="text-end">
                                         <a href="#" class="text-muted"> <i class="fi-rs-cross-small"></i> Clear Cart</a>
                                     </td>
@@ -61,7 +62,7 @@
                         <a class="btn "><i class="fi-rs-shopping-bag mr-10"></i>Continue Shopping</a>
                     </div>
                     <div class="divider center_icon mt-50 mb-50"><i class="fi-rs-fingerprint"></i></div>
-                   
+
                 </div>
             </div>
         </div>
