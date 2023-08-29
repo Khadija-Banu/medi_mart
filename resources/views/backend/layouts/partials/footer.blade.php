@@ -1,6 +1,6 @@
 <footer id="footer" class="footer">
     <div class="copyright" style="color:rgba(55,180,236,255)">
-      &copy; Copyright <strong><span style="color:rgba(141,196,66,255)">Medi Mart</span></strong>. All Rights Reserved
+      &copy; Copyright <strong><span style="color:rgba(70,99,202,255)">Medi Mart</span></strong>. All Rights Reserved
     </div>
     <div class="credits" style="color:rgba(55,180,236,255)">
       <!-- All the links in the footer should remain intact. -->

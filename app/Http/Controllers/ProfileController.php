@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\View\View;
+use  App\Models\User;
 
 class ProfileController extends Controller
 {
@@ -57,4 +58,11 @@ class ProfileController extends Controller
 
         return Redirect::to('/');
     }
+
+    //Registration user list show
+    public function userList(){
+        $users=User::paginate(4);
+        return view('backend.user_details.user_list',compact('users'));
+    }
+
 }
