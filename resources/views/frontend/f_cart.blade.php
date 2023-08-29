@@ -31,15 +31,11 @@
                             </thead>
                             <tbody>
                                 @foreach ($cartItems as $item)
-                               
-                          
-                              
-                               
-       {{-- @dd($item) --}}
+
                                 <tr>
-                                    <td class="image product-thumbnail"><img src="assets/imgs/shop/product-1-2.jpg" alt="#"></td>
+                                    <td class="image product-thumbnail"><img src="{{asset('storage/medicines/'. $item->medicine->medicine_image)}}" alt="#"></td>
                                     <td class="product-des product-name">
-                                        {{$item->medicine_id}}
+                                        {{$item->medicine->medicine_name}}
                                     </td>
                                     <td class="price" data-title="Price"><span>${{$item->unit_price}}</span></td>
                                     <td style="width: 100px">
@@ -61,7 +57,7 @@
                         </table>
                     </div>
                     <div class="cart-action text-end">
-                        <a class="btn  mr-10 mb-sm-15"><i class="fi-rs-shuffle mr-10"></i>Update Cart</a>
+                        <a class="btn  mr-10 mb-sm-15" href="{{route('frontend_checkout')}}"><i class="fi-rs-shuffle mr-10"></i>Update Cart</a>
                         <a class="btn "><i class="fi-rs-shopping-bag mr-10"></i>Continue Shopping</a>
                     </div>
                     <div class="divider center_icon mt-50 mb-50"><i class="fi-rs-fingerprint"></i></div>

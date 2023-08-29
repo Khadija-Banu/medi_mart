@@ -84,15 +84,10 @@ class CartController extends Controller
 
     public function cartItems()
     { 
-      
-        $medicines = Medicine::all();
 
         $categories = Category::all();
-
-        $cartItems  = DB::table('carts')->where('user_id', auth()->user()->id)->get();
-
-
-        return view('frontend.f_cart',compact('cartItems','medicines','categories'));
+        $cartItems=Cart::with('medicine')->where('user_id',auth()->user()->id)->get();
+        return view('frontend.f_cart',compact('cartItems','categories'));
     }
 
 }
