@@ -31,5 +31,11 @@ class FrontendHomeController extends Controller
         $categories=Category::all();
         return view ('frontend.f_product_details',compact('categories','medicines','myItems'));
     }
+
+    public function checkout(){
+        $categories=Category::all();
+        $cartItems=Cart::with('medicine')->where('user_id',auth()->user()->id)->get();
+        return view ('frontend.f_checkout',compact('categories','cartItems'));
+    }
     
 }

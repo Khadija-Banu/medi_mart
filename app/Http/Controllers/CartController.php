@@ -83,19 +83,12 @@ class CartController extends Controller
     }
 
     public function cartItems()
-    {
 
-        $medicines = Medicine::all();
-        // var_dump($medicines);
+    { 
 
         $categories = Category::all();
-
-        // $cartItems  = DB::table('carts')->where('user_id', auth()->user()->id)->get();
-        $cartItems = Cart::with("medicine")->where("user_id", auth()->user()->id)->get();
-        // dd($cartItems);
-
-
-        return view('frontend.f_cart',compact('cartItems','medicines','categories'));
+        $cartItems=Cart::with('medicine')->where('user_id',auth()->user()->id)->get();
+        return view('frontend.f_cart',compact('cartItems','categories'));
     }
 
 }
