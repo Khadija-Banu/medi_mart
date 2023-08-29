@@ -31,15 +31,12 @@
                             </thead>
                             <tbody>
                                 @foreach ($cartItems as $item)
-                               
-                          
-                              
-                               
-       {{-- @dd($item) --}}
+
+       {{-- @dd($item->medicine->medicine_image) --}}
                                 <tr>
-                                    <td class="image product-thumbnail"><img src="assets/imgs/shop/product-1-2.jpg" alt="#"></td>
+                                    <td class="image product-thumbnail"><img src="{{asset('storage/medicines/'. $item->medicine->medicine_image)}}" alt="#"></td>
                                     <td class="product-des product-name">
-                                        {{$item->medicine_id}}
+                                        {{$item->medicine->medicine_name}}
                                     </td>
                                     <td class="price" data-title="Price"><span>${{$item->unit_price}}</span></td>
                                     <td style="width: 100px">
@@ -52,7 +49,7 @@
                                 </tr>
 
                                 @endforeach
-                 
+
                                     <td colspan="6" class="text-end">
                                         <a href="#" class="text-muted"> <i class="fi-rs-cross-small"></i> Clear Cart</a>
                                     </td>
@@ -65,7 +62,7 @@
                         <a class="btn "><i class="fi-rs-shopping-bag mr-10"></i>Continue Shopping</a>
                     </div>
                     <div class="divider center_icon mt-50 mb-50"><i class="fi-rs-fingerprint"></i></div>
-                   
+
                 </div>
             </div>
         </div>
