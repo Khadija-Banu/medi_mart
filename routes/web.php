@@ -11,6 +11,7 @@ use App\Http\Controllers\SearchController;
 use App\Http\Controllers\FrontendHomeController;
 use App\Http\Controllers\CompanyController;
 use App\Http\Controllers\SliderController;
+use App\Http\Controllers\SslCommerzPaymentController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
