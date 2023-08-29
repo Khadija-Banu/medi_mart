@@ -9,13 +9,13 @@
             <table class="table" >
                 <thead >
                   <tr >
-                    <th style="color:rgba(141,196,66,255)" >Ser No</th>
-                    <th style="color:rgba(141,196,66,255)" >Vendor Name</th> 
-                    <th style="color:rgba(141,196,66,255)" >Store Name</th> 
-                    <th style="color:rgba(141,196,66,255)" >Store Image</th> 
-                    <th style="color:rgba(141,196,66,255)" >Store Website Link</th>  
-                    <th style="color:rgba(141,196,66,255)" >Location</th>                     
-                   <th style="color:rgba(141,196,66,255)" >Actions</th>     
+                    <th style="color:rgba(70,99,202,255)" >Ser No</th>
+                    <th style="color:rgba(70,99,202,255)">Vendor Name</th> 
+                    <th style="color:rgba(70,99,202,255)">Store Name</th> 
+                    <th style="color:rgba(70,99,202,255)">Store Image</th> 
+                    <th style="color:rgba(70,99,202,255)">Store Website Link</th>  
+                    <th style="color:rgba(70,99,202,255)">Location</th>                     
+                   <th style="color:rgba(70,99,202,255)">Actions</th>     
                   </tr>
                 </thead>
                 <tbody>

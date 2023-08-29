@@ -4,7 +4,7 @@
         <div class="container">
             <div class="header-wrap">
                 <div class="logo logo-width-1">
-                    <a href="index.html"><img src="{{asset('ui/frontend')}}/assets/imgs/logo/medi-mart-logo.png" style="height: 50px" alt="logo"></a>
+                    <a href="{{route('frontend_home')}}"><img src="{{asset('ui/frontend')}}/assets/imgs/logo/medi.png" style="height: 80px" alt="logo"></a>
                 </div>
                 <div class="header-right">
                     <div class="search-style-1">
@@ -14,12 +14,7 @@
                     </div>
                     <div class="header-action-right">
                         <div class="header-action-2">
-                            <div class="header-action-icon-2">
-                                <a href="shop-wishlist.php">
-                                    <img class="svgInject" alt="Surfside Media" src="{{asset('ui/frontend')}}/assets/imgs/theme/icons/icon-heart.svg">
-                                    <span class="pro-count blue">8</span>
-                                </a>
-                            </div>
+                        
                             <div class="header-action-icon-2">
                                 <a class="mini-cart-icon" href="{{route('cart_items')}}">
                                     <img alt="Surfside Media" src="{{asset('ui/frontend')}}/assets/imgs/theme/icons/icon-cart.svg">
@@ -32,39 +27,12 @@
                                     </span>
                                 </a>
                                 <div class="cart-dropdown-wrap cart-dropdown-hm2">
-                                    <ul>
-                                        <li>
-                                            <div class="shopping-cart-img">
-                                                <a href="product-details.html"><img alt="Surfside Media" src="{{asset('ui/frontend')}}/assets/imgs/shop/thumbnail-3.jpg"></a>
-                                            </div>
-                                            <div class="shopping-cart-title">
-                                                <h4><a href="product-details.html">Daisy Casual Bag</a></h4>
-                                                <h4><span>1 × </span>$800.00</h4>
-                                            </div>
-                                            <div class="shopping-cart-delete">
-                                                <a href="#"><i class="fi-rs-cross-small"></i></a>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="shopping-cart-img">
-                                                <a href="product-details.html"><img alt="Surfside Media" src="{{asset('ui/frontend')}}/assets/imgs/shop/thumbnail-2.jpg"></a>
-                                            </div>
-                                            <div class="shopping-cart-title">
-                                                <h4><a href="product-details.html">Corduroy Shirts</a></h4>
-                                                <h4><span>1 × </span>$3200.00</h4>
-                                            </div>
-                                            <div class="shopping-cart-delete">
-                                                <a href="#"><i class="fi-rs-cross-small"></i></a>
-                                            </div>
-                                        </li>
-                                    </ul>
+                                   
                                     <div class="shopping-cart-footer">
-                                        <div class="shopping-cart-total">
-                                            <h4>Total <span>$4000.00</span></h4>
-                                        </div>
+                                       
                                         <div class="shopping-cart-button">
                                             <a href="{{route('cart_items')}}" class="outline">View cart</a>
-                                            <a href="checkout.html">Checkout</a>
+                                            <a href="{{route('frontend_checkout')}}">Checkout</a>
                                         </div>
                                     </div>
                                 </div>
@@ -280,9 +248,34 @@
                                              
                                             </ul>
                                         </li>
-                                     
+
+
+
+
+                                        <li class="sub-mega-menu sub-mega-menu-width-34">
+                                            <div class="menu-banner-wrap">
+                                                <a href="product-details.html"><img src="{{asset('ui/frontend')}}/assets/imgs/banner/pain belt.jpg" alt="Surfside Media"></a>
+                                                <div class="menu-banner-content">
+                                                    <h4>Hot deals</h4>
+                                                    <h3>Don't miss<br> Trending</h3>
+                                                    <div class="menu-banner-price">
+                                                        <span class="new-price text-success">Save to 50%</span>
+                                                    </div>
+                                                    <div class="menu-banner-btn">
+                                                        <a href="product-details.html">Shop now</a>
+                                                    </div>
+                                                </div>
+                                                <div class="menu-banner-discount">
+                                                    <h3>
+                                                        <span>35%</span>
+                                                        off
+                                                    </h3>
+                                                </div>
+                                            </div>
+                                        </li>
+   
                                     </ul>
-                                </li>
+                              </li>
                                                                
                                 <li><a href="{{route('frontend_contact')}}">Contact</a></li>
                                 <li><a href="#">My Account<i class="fi-rs-angle-down"></i></a>
@@ -298,9 +291,9 @@
                             </ul>
                         </nav>
                     </div>
-                </div>
+                </div> 
                 <div class="hotline d-none d-lg-block">
-                    <p><i class="fi-rs-smartphone"></i><span>Toll Free</span> (+1) 0000-000-000 </p>
+                    <p><i class="fi-rs-smartphone"></i><span>Toll Free</span> (+9) 5352-012-235 </p>
                 </div>
            
                 <div class="header-action-right d-block d-lg-none">

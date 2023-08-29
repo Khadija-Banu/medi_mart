@@ -22,6 +22,9 @@ use App\Http\Controllers\SslCommerzPaymentController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+Route::get('/backend_dashboard', function () {
+    return view('backend.master');
+});
 
 
 Route::get('/', function () {

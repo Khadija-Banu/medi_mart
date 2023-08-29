@@ -9,12 +9,12 @@
             <table class="table" >
                 <thead >
                   <tr >
-                    <th style="color:rgba(141,196,66,255)" >Ser No</th>
-                    <th style="color:rgba(141,196,66,255)" > Status</th> 
-                    <th style="color:rgba(141,196,66,255)" class="fs-5">Address</th> 
-                    <th style="color:rgba(141,196,66,255)" >Mobile No</th> 
-                    <th style="color:rgba(141,196,66,255)" >User Name</th>                                
-                   <th style="color:rgba(141,196,66,255)" >Actions</th>     
+                    <th style="color:rgba(70,99,202,255)">Ser No</th>
+                    <th style="color:rgba(70,99,202,255)"> Status</th> 
+                    <th style="color:rgba(70,99,202,255)">Address</th> 
+                    <th style="color:rgba(70,99,202,255)">Mobile No</th> 
+                    <th style="color:rgba(70,99,202,255)">User Name</th>                                
+                   <th style="color:rgba(70,99,202,255)">Actions</th>     
                   </tr>
                 </thead>
                 <tbody>
@@ -26,8 +26,8 @@
                     <td>{{$id++}}</td>
                     <td>{{$order->status}}</td>
                     <td>{{$order->address}}</td>               
-                    <td>{{$order->mobile_no}}</td>
-                    <td>{{$order->user->name?? ''}}</td>            
+                    <td>{{$order->phone}}</td>
+                    <td>{{$order->name?? ''}}</td>            
                     <td>
                       <a class="btn btn-sm btn-warning" href="{{route('order_edit',$order->id)}}">Edit</a>
                       <a class="btn btn-sm btn-danger" href="{{route('order_delete',$order->id)}}">Delete</a>

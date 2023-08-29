@@ -141,38 +141,38 @@
                 </div>
                 <div class="payment_option">
                     <div class="custome-radio">
-                        <input class="form-check-input" required="" type="radio" name="payment_option" id="exampleRadios3">
+                        <input class="form-check-input" required="" type="radio" name="payment_option" id="exampleRadios3"  onclick="myFunction()">
                         <label class="form-check-label" for="exampleRadios3" data-bs-toggle="collapse" data-target="#cashOnDelivery" aria-controls="cashOnDelivery">Cash On Delivery</label>                                        
                     </div>
-                    <div class="custome-radio">
-                        <input class="form-check-input" required="" type="radio" name="payment_option" id="exampleRadios4">
-                        <label class="form-check-label" for="exampleRadios4" data-bs-toggle="collapse" data-target="#cardPayment" aria-controls="cardPayment">Card Payment</label>                                        
+                    
+                    <div class="row">
+                 
+                    <div class="col">
+                        <button id="sslczPayBtn"
+                        token="if you have any token validation"
+                        postdata=""
+                        order="If you already have the transaction generated for current order"
+                        endpoint="/pay-via-ajax"> Card Payment
+                            </button>
                     </div>
-                    <div class="custome-radio">
-                        <input class="form-check-input" required="" type="radio" name="payment_option" id="exampleRadios5">
-                        <label class="form-check-label" for="exampleRadios5" data-bs-toggle="collapse" data-target="#paypal" aria-controls="paypal">Paypal</label>                                        
-                    </div>
+                    <div class="col">  <a href="#" class="btn btn-fill-out btn-block "  >Place Order</a></div>
+                </div>
                 </div>
             </div>
-            <a href="#" class="btn btn-fill-out btn-block mt-30">Place Order</a>
-        
-        
-
-            <button id="sslczPayBtn"
-        token="if you have any token validation"
-        postdata=""
-        order="If you already have the transaction generated for current order"
-        endpoint="/pay-via-ajax"> Pay Now
-</button>
+          
         
         </div>
     </div>
 </div>
 
-
-
-
 </div>
+
+<script>
+    function myFunction() {
+      document.getElementById("demo").innerHTML = "Place Order";
+    }
+    </script>
+
 
 @endsection
 

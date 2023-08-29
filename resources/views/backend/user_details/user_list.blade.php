@@ -9,10 +9,10 @@
           <table class="table" >
                 <thead >
                   <tr>
-                    <th style="color:rgba(141,196,66,255)">Ser No</th>
-                    <th style="color:rgba(141,196,66,255)" >Name</th>
-                    <th style="color:rgba(141,196,66,255)" >Email</th>
-                    <th style="color:rgba(141,196,66,255)" >Medicine</th>                
+                    <th style="color:rgba(70,99,202,255)">Ser No</th>
+                    <th style="color:rgba(70,99,202,255)">Name</th>
+                    <th style="color:rgba(70,99,202,255)">Email</th>
+                    <th style="color:rgba(70,99,202,255)">Medicine</th>                
                   </tr>
                 </thead>
                 <tbody>
