@@ -15,7 +15,6 @@ class SearchController extends Controller
   public function medicine_search(Request $request){
     $categories=Category::all();
     $query=$request->input(key: 'query');
-    
     $medicines=Medicine::where('medicine_name','LIKE',"%$query%")->get();
     return view('frontend.medicine_search_list',compact('medicines','query','categories'));
   }
