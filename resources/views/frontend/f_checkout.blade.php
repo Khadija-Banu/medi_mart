@@ -141,8 +141,12 @@
                 </div>
                 <div class="payment_option">
                     <div class="custome-radio">
-                        <input class="form-check-input" required="" type="radio" name="payment_option" id="exampleRadios3"  onclick="myFunction()">
+                        <input class="form-check-input" type="radio" name="payment_option" id="exampleRadios3"  onclick="myFunction()">
                         <label class="form-check-label" for="exampleRadios3" data-bs-toggle="collapse" data-target="#cashOnDelivery" aria-controls="cashOnDelivery">Cash On Delivery</label>                                        
+                    </div>
+                    <div class="custome-radio">
+                        <input class="form-check-input" type="radio" name="payment_option" id="exampleRadios2"  onclick="myFunction()">
+                        <label class="form-check-label" for="exampleRadios2" data-bs-toggle="collapse" data-target="#cashOnDelivery" aria-controls="cashOnDelivery">Card Payment </label>                                        
                     </div>
                     
                     <div class="row">
@@ -152,7 +156,7 @@
                         token="if you have any token validation"
                         postdata=""
                         order="If you already have the transaction generated for current order"
-                        endpoint="/pay-via-ajax"> Card Payment
+                        endpoint="/pay-via-ajax"> Pay Now
                             </button>
                     </div>
                     <div class="col">  <a href="#" class="btn btn-fill-out btn-block "  >Place Order</a></div>
