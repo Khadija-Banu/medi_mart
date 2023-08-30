@@ -262,7 +262,7 @@
                                                         <span class="new-price text-success">Save to 50%</span>
                                                     </div>
                                                     <div class="menu-banner-btn">
-                                                        <a href="product-details.html">Shop now</a>
+                                                        <a href="">Shop now</a>
                                                     </div>
                                                 </div>
                                                 <div class="menu-banner-discount">
@@ -285,7 +285,7 @@
                                         <li><a href="#">Categories</a></li>
                                         <li><a href="#">Orders</a></li>
                                         <li><a href="#">Customers</a></li>
-                                        <li><a href="#">Logout</a></li>                                            
+                                      
                                     </ul>
                                 </li>
                             </ul>

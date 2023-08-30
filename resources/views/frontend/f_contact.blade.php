@@ -19,7 +19,7 @@
                         <div class="contact-from-area padding-20-row-col wow FadeInUp">
                             <h3 class="mb-10 text-center">Drop Us a Line</h3>
                             <p class="text-muted mb-30 text-center font-sm">Lorem ipsum dolor sit amet consectetur.</p>
-                            <form class="contact-form-style text-center" id="contact-form" action="{{route('frontend_sendMsg')}}" method="get">
+                            <form class="contact-form-style text-center" id="contact-form" action="" method="get">
                                 <div class="row">
                                     <div class="col-lg-6 col-md-6">
                                         <div class="input-style mb-20">

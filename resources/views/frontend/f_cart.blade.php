@@ -40,7 +40,8 @@
                                     </td>
                                     <td class="price" data-title="Price"><span>${{$item->unit_price}}</span></td>
                                     <td style="width: 100px">
-                                            <input type="number" value="{{$item->quantity}}">
+                            
+                                            <input  value="{{$item->quantity}}">
                                     </td>
                                     <td >
                                         <span>${{$item->total_price}}</span>

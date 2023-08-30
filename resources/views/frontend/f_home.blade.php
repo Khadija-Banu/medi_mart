@@ -15,7 +15,7 @@
                                 <h2 class="animated fw-900">{{$slider->slider_name}}</h2>
                            
                                <p class="animated">{{$slider->slider_description}}</p>
-                                <a class="animated btn btn-brush btn-brush-3" href="product-details.html"> Shop Now </a>
+                                <a class="animated btn btn-brush btn-brush-3" href=""> Shop Now </a>
                             </div>
                         </div>
                         <div class="col-lg-7 col-md-6">
@@ -117,7 +117,7 @@
                 <div class="banner-text d-md-block d-none">
                     <h4 class="mb-15 mt-40 text-brand" >Repair Services</h4>
                     <h1 class="fw-600 mb-20">We're an Apple <br>Authorised Service Provider</h1>
-                    <a href="shop.html" class="btn">Learn More <i class="fi-rs-arrow-right"></i></a>
+                    <a href="" class="btn">Learn More <i class="fi-rs-arrow-right"></i></a>
                 </div>
             </div>
         </div>
@@ -138,12 +138,7 @@
                                     <img  style="height: 200px" class="default-img" src="{{asset('storage/medicines/'. $medicine->medicine_image)}}" alt="">                                  
                                 </a>
                             </div>
-                            <div class="product-action-1">
-                                <a aria-label="Quick view" class="action-btn small hover-up" data-bs-toggle="modal" data-bs-target="#quickViewModal">
-                                    <i class="fi-rs-eye"></i></a>
-                                <a aria-label="Add To Wishlist" class="action-btn small hover-up" href="wishlist.php" tabindex="0"><i class="fi-rs-heart"></i></a>
-                                <a aria-label="Compare" class="action-btn small hover-up" href="compare.php" tabindex="0"><i class="fi-rs-shuffle"></i></a>
-                            </div>
+                      
                          
                         </div>
                         <div class="product-content-wrap">
