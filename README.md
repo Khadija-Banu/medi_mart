@@ -1,3 +1,7 @@
+This is an Ecommerce website with another different features here like real time location tracking, alert system and many more. This is our university final project . It is running beacause my final project have in February 2024. So i am working this project.
+
+
+
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
 <p align="center">
