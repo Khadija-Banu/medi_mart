@@ -3,7 +3,7 @@
     <ul class="sidebar-nav" id="sidebar-nav">
 
       <li class="nav-item">
-        <a class="nav-link " href="index.html">
+        <a class="nav-link " href="{{route('backend_dashboard')}}">
           <i class="bi bi-grid" style="color:rgba(70,99,202,255)"></i>
           <span style="color:rgba(70,99,202,255)">Dashboard</span>
         </a>

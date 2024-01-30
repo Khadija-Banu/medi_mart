@@ -8,16 +8,20 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\View\View;
-use  App\Models\User;
+use App\Models\User;
+use App\Models\Order;
 
 class ProfileController extends Controller
 {
     /**
      * Display the user's profile form.
      */
- 
 
-
+    public function userList(){
+        $users=User::all();
+        // $orders=Order::all();
+        return view ('backend.user_details.user_list',compact('users'));
+    }
     public function edit(Request $request): View
     {
         return view('profile.edit', [
@@ -61,11 +65,4 @@ class ProfileController extends Controller
 
         return Redirect::to('/');
     }
-
-    //Registration user list show
-    public function userList(){
-        $users=User::paginate(4);
-        return view('backend.user_details.user_list',compact('users'));
-    }
-
 }

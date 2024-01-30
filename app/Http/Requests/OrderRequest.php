@@ -22,10 +22,16 @@ class OrderRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'status'=> 'required',
+            'name' => 'required',
+            'satus'=> 'required',
             'address' => 'required',
-            'mobile_no'=> 'required',
-            'user_id' => 'required',
+            'mobile_no' => 'required',
+            'addition_info'=> 'required',
+            'product_name' => 'required',
+            'quantity' => 'required',
+            'price'=> 'required',
+            'prescription_image' => 'required',
+            'delivery_system'=> 'required',
         
         ];
     }

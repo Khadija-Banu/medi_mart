@@ -9,24 +9,62 @@
         
     <form action="{{route('order_update',$orders->id)}}" method="post" class="mt-4" enctype="multipart/form-data">
         @csrf
+            <!-- <div class="form-group mt-2">
+              <label for="">Receiver Name</label>
+              <input class="form-control" type="text " name="name" value="{{$orders->name}}">
+            </div> -->
             <div class="form-group mt-2">
-                <input class="form-control" type="text " name="status" value="{{$orders->status}}">
+              <label for="">Delivery Status</label>
+              <select class="form-select" name="status" >
+              <option value="Pending">{{$orders->status}}</option> 
+              <option value="Processing" >Processing</option>     
+            </select>
             </div>
+
             <div class="form-group mt-2">
+            <label for="">Delivery Address</label>
               <input class="form-control" type="text " name="address" value="{{$orders->address}}">
+            </div>
+
+            <div class="form-group mt-2">
+              <label for="">Receiver Phone no</label>
+              <input type="text" name="mobile_no" class="form-control" value="{{$orders->mobile_no}}">
+            </div>
+
+            <div class="form-group mt-2">
+              <label for="">Addition Info</label>
+              <input type="text" name="additional_info" class="form-control" value="{{$orders->additional_info}}">
+            </div>
+
+            <div class="form-group mt-2">
+              <label for="">Product Name</label>
+              <input type="text" name="product_name" class="form-control" value="{{$orders->product_name}}">
+            </div>
+
+            <div class="form-group mt-2">
+              <label for="">Quantity</label>
+              <input type="text" name="quantity" class="form-control" value="{{$orders->quantity}}">
+            </div>
+
+            <div class="form-group mt-2">
+              <label for="">Price</label>
+              <input type="text" name="price" class="form-control" value="{{$orders->price}}">
+            </div>
+
+            <div class="form-group mt-2">
+              <label for="">Prescription Image</label>
+              <input type="file" name="prescription_image" value="{{$orders->prescription_image}}" class="form-control"   >
           </div>
-              <div class="form-group mt-2">
-                <input type="text" name="mobile_no" class="form-control" value="{{$orders->mobile_no}}">
-              </div>
-              <div class="form-group mt-2">
-                <select class="form-select" name="user_id" >
-                  <option value="">Select user name</option>
-                  @foreach ($users as $user)
-                  <option value="{{$user->id}}" >{{$user->name}}</option>
-                  @endforeach        
-                </select>
-              </div>
-              <button type="submit" class="btn btn-success mt-2">Update</button>
+
+          <div class="form-group mt-2">
+            <input class="form-control" type="text " name="delivery_system"  value="{{$orders->delivery_system}}"placeholder="Delivery System ">
+
+            @error('delivery_system')
+              <span class="text-danger">{{ $message }}</span>
+            @enderror
+          </div>
+            
+            <button type="submit" class="btn btn-success mt-2">Update</button>
             </form>
         </div>
     </div>

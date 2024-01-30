@@ -10,6 +10,11 @@ use Image;
 
 class CompanyController extends Controller
 {
+     //security
+     public function __construct(){
+        $this->middleware('auth');
+    }
+    
     public function index(){
         $companies=Company::paginate(4);
         return view ('backend.company_details.company_index',compact('companies'));
@@ -39,7 +44,7 @@ class CompanyController extends Controller
 
     public function edit($id){
         $company=Company::find($id);
-        return view ('backend.company_details.category_edit',compact('company'));
+        return view ('backend.company_details.company_edit',compact('company'));
     }
 
     public function update(Request $request,$id){

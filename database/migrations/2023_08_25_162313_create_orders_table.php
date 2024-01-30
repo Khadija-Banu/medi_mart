@@ -13,9 +13,16 @@ return new class extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
-            $table->text('status');
+            $table->string('name');
+            $table->string('status')->default('pending');
             $table->text('address');
             $table->integer('mobile_no');
+            $table->text('additional_info');
+            $table->string('product_name');
+            $table->integer('quantity');
+            $table->integer('price');
+            $table->string('prescription_image')->default('Null');
+            $table->string('delivery_system');
             $table->unsignedBigInteger('user_id')->nullable;
             $table->timestamps();
         });

@@ -14,8 +14,13 @@ use Illuminate\Support\Facades\DB;
 
 class CartController extends Controller
 {
+     //security
+     public function __construct(){
+        $this->middleware('auth');
+    }
+    
     public function index(){
-        $carts=Cart::paginate(4);
+        $carts=Cart::all();
         return view ('backend.cart_details.cart_index',compact('carts'));
     }
 
@@ -30,27 +35,25 @@ class CartController extends Controller
 
         $medicine = Medicine::find($request->medicine_id);
 
-
-
+        if($request->prescription_image){
+            $image=$this->UploadImage('prescription',$request->prescription_image);
+            // dd("kjdfkd");
+        }else{
+            $image='No need';
+        }
+        $prescription_image=$image;
         DB::table('carts')->insert([
             'medicine_id' => $medicine->id,
             'user_id' => auth()->user()->id,
             'unit_price' => $medicine->medicine_price,
             'quantity' => $request->quantity,
-            'total_price' =>( $medicine->medicine_price * $request->quantity ) ?? 0
-
-
+            'total_price' =>( $medicine->medicine_price * $request->quantity ) ?? 0,
+            'prescription_image' =>$image
+            
+              
         ]);
         return redirect()->back();
 
-    //     try{
-    //  $data=$request->all();
-    //  Cart::create($data);
-    //  return redirect()->route('cart_index');
-    // }
-    // catch(Exception $e){
-    //  return redirect()-route('cart_create')->withMessage($e->getMessage());
-    // }
     }
 
     public function edit($id){
@@ -82,13 +85,26 @@ class CartController extends Controller
 
     }
 
-    public function cartItems()
-
-    { 
-
-        $categories = Category::all();
-        $cartItems=Cart::with('medicine')->where('user_id',auth()->user()->id)->get();
-        return view('frontend.f_cart',compact('cartItems','categories'));
-    }
+       //Image upload function
+       public function UploadImage($presc_name,$prescription_image){
+        $timestamp=str_replace([' ',':'],'-',Carbon::now()->toDateTimeString());
+        $file_name=$timestamp . '-'.'prescription'. '.' .$prescription_image->getClientOriginalExtension();
+        $pathToUpload=storage_path().'/app/public/prescriptions/';
+ 
+        if(!is_dir($pathToUpload)){
+         mkdir($pathToUpload, 0755, true);
+ 
+        }
+        Image::make($prescription_image)->resize(634,792)->save($pathToUpload.$file_name);
+        return $file_name;
+     }
+ 
+     //Image update then previous image delete in storage folder
+     private function unlink($prescription_image){
+         $pathToUpload=storage_path().'/app/public/prescriptions/';
+         if($prescription_image != '' && file_exists($pathToUpload.$prescription_image)){
+             @unlink($pathToUpload.$prescription_image);
+         }
+     }
 
 }

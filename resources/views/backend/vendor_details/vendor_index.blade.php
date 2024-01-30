@@ -10,12 +10,23 @@
                 <thead >
                   <tr >
                     <th style="color:rgba(70,99,202,255)" >Ser No</th>
+
                     <th style="color:rgba(70,99,202,255)">Vendor Name</th> 
+
                     <th style="color:rgba(70,99,202,255)">Store Name</th> 
+
                     <th style="color:rgba(70,99,202,255)">Store Image</th> 
-                    <th style="color:rgba(70,99,202,255)">Store Website Link</th>  
-                    <th style="color:rgba(70,99,202,255)">Location</th>                     
-                   <th style="color:rgba(70,99,202,255)">Actions</th>     
+
+                    <th style="color:rgba(70,99,202,255)">Store Website Link</th> 
+
+                    <th style="color:rgba(70,99,202,255)">Location</th>
+
+                    <th style="color:rgba(70,99,202,255)">Latitude</th> 
+
+                    <th style="color:rgba(70,99,202,255)">Longitude</th>   
+
+                    <th style="color:rgba(70,99,202,255)">Actions</th> 
+
                   </tr>
                 </thead>
                 <tbody>
@@ -35,7 +46,9 @@
                       @endif
                     </td>
                     <td>{{$vendor->store_website_link}}</td>
-                    <td>{{$vendor->location}}</td>              
+                    <td>{{$vendor->location}}</td> 
+                    <td>{{$vendor->latitude}}</td> 
+                    <td>{{$vendor->longitude}}</td> 
                     <td>
                       <a class="btn btn-sm btn-warning" href="{{route('vendor_edit',$vendor->id)}}">Edit</a>
                       <a class="btn btn-sm btn-danger" href="{{route('vendor_delete',$vendor->id)}}">Delete</a>

@@ -16,6 +16,7 @@ return new class extends Migration
             $table->integer('quantity');
             $table->integer('unit_price');
             $table->integer('total_price');
+            $table->string('prescription_image')->default('Null');
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('medicine_id');
             $table->timestamps();

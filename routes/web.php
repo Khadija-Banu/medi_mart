@@ -13,29 +13,18 @@ use App\Http\Controllers\CompanyController;
 use App\Http\Controllers\SliderController;
 use App\Http\Controllers\SslCommerzPaymentController;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "web" middleware group. Make something great!
-|
-*/
-Route::get('/backend_dashboard', function () {
-    return view('backend.master');
-});
-
+// Route::get('/backend_dashboard', function () {
+//     return view('backend.master');
+// });
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('auth.login');
 });
 
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+// Route::get('/dashboard', function () {
+//     return view('dashboard');
+// })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [Controller::class, 'edit'])->name('profile.edit');
@@ -48,8 +37,9 @@ require __DIR__.'/auth.php';
 //backend route
 
 //category route
+Route::get('/backend_dashboard',[FrontendHomeController::class,'home'])->name('backend_dashboard');
 
-Route::prefix('category')->group(function () {
+Route::prefix('category')->middleware(['auth', 'admin'])->group(function () {
     Route::get('/index',[CategoryController::class,'index'])->name('category_index');
     Route::get('/create',[CategoryController::class,'create'])->name('category_create');
     Route::post('/store',[CategoryController::class,'store'])->name('category_store');
@@ -60,7 +50,7 @@ Route::prefix('category')->group(function () {
 
 //medicine route
 
-Route::prefix('medicine')->group(function () {
+Route::prefix('medicine')->middleware(['auth', 'admin'])->group(function () {
     Route::get('/index',[MedicineController::class,'index'])->name('medicine_index');
     Route::get('/create',[MedicineController::class,'create'])->name('medicine_create');
     Route::post('/store',[MedicineController::class,'store'])->name('medicine_store');
@@ -71,7 +61,7 @@ Route::prefix('medicine')->group(function () {
 
 //vendor route
 
-Route::prefix('vendor')->group(function () {
+Route::prefix('vendor')->middleware(['auth', 'admin'])->group(function () {
     Route::get('/index',[VendorController::class,'index'])->name('vendor_index');
     Route::get('/create',[VendorController::class,'create'])->name('vendor_create');
     Route::post('/store',[VendorController::class,'store'])->name('vendor_store');
@@ -101,12 +91,12 @@ Route::prefix('cart')->group(function () {
     Route::get('/edit/{id}',[CartController::class,'edit'])->name('cart_edit');
     Route::post('/update/{id}',[CartController::class,'update'])->name('cart_update');
     Route::get('/delete/{id}',[CartController::class,'delete'])->name('cart_delete');
-    Route::get('/cart_item_list', [CartController::class, 'cartItems'])->name('cart_items');
+    
 });
 
 //company route
 
-Route::prefix('company')->group(function () {
+Route::prefix('company')->middleware(['auth', 'admin'])->group(function () {
     Route::get('/index',[CompanyController::class,'index'])->name('company_index');
     Route::get('/create',[CompanyController::class,'create'])->name('company_create');
     Route::post('/store',[CompanyController::class,'store'])->name('company_store');
@@ -118,7 +108,7 @@ Route::prefix('company')->group(function () {
 
 //slider route
 
-Route::prefix('slider')->group(function () {
+Route::prefix('slider')->middleware(['auth', 'admin'])->group(function () {
     Route::get('/index',[SliderController::class,'index'])->name('slider_index');
     Route::get('/create',[SliderController::class,'create'])->name('slider_create');
     Route::post('/store',[SliderController::class,'store'])->name('slider_store');
@@ -129,29 +119,34 @@ Route::prefix('slider')->group(function () {
 
 
 //user list route
-Route::get('/user_list',[ProfileController::class,'userList'])->name('user_list');
+Route::get('/user_list',[ProfileController::class,'userList'])->middleware(['auth', 'admin'])->name('user_list');
 
 
-Route::get('/search',[SearchController::class,'medicine_search'])->name('search');
+Route::get('/search',[SearchController::class,'medicine_search'])->middleware(['auth', 'user'])->name('search');
 // Route::get('/f_search',[SearchController::class,'f_medicine_search'])->name('f_search');
 
 
 //Frontend Route
-Route::get('/f_master', function () {
-    return view('frontend.master');
-});
+// Route::get('/f_master', function () {
+//     return view('frontend.master');
+// });
 
 Route::get('/home',[FrontendHomeController::class,'home'])->name('frontend_home');
-Route::get('/about',[FrontendHomeController::class,'about'])->name('frontend_about');
-Route::get('/f_shop/{id}',[FrontendHomeController::class,'shop'])->name('frontend_shop');
-Route::get('/contact',[FrontendHomeController::class,'contact'])->name('frontend_contact');
+Route::get('/about',[FrontendHomeController::class,'about'])->middleware(['auth', 'user'])->name('frontend_about');
+Route::get('/f_shop/{id}',[FrontendHomeController::class,'shop'])->middleware(['auth', 'user'])->name('frontend_shop');
+Route::get('/contact',[FrontendHomeController::class,'contact'])->middleware(['auth', 'user'])->name('frontend_contact');
+Route::get('/cart_item_list', [FrontendHomeController::class, 'cartItems'])->middleware(['auth', 'user'])->name('cart_items');
+Route::get('/item_edit/{id}',[FrontendHomeController::class,'item_edit'])->middleware(['auth', 'user'])->name('item_edit');
+Route::post('/item_update/{id}',[FrontendHomeController::class,'item_update'])->middleware(['auth', 'user'])->name('item_update');
 
 
-Route::get('/product_details/{id}',[FrontendHomeController::class,'product'])->name('frontend_product');
+Route::get('/product_details/{id}',[FrontendHomeController::class,'product'])->middleware(['auth', 'user'])->name('frontend_product');
 
-Route::get('/f_checkout',[FrontendHomeController::class,'checkout'])->name('frontend_checkout');
+Route::get('/f_checkout',[FrontendHomeController::class,'checkout'])->middleware(['auth', 'user'])->name('frontend_checkout');
+Route::get('/f_myAccount',[FrontendHomeController::class,'myAccount'])->middleware(['auth', 'user'])->name('frontend_myAccount');
 
-
+Route::post('/add_comment',[FrontendHomeController::class,'add_comment'])->middleware(['auth', 'user'])->name('add_comment');
+Route::post('/add_reply',[FrontendHomeController::class,'add_reply'])->middleware(['auth', 'user'])->name('add_reply');
 
 // SSLCOMMERZ Start
 Route::get('/example1', [SslCommerzPaymentController::class, 'exampleEasyCheckout']);
@@ -166,4 +161,3 @@ Route::post('/cancel', [SslCommerzPaymentController::class, 'cancel']);
 
 Route::post('/ipn', [SslCommerzPaymentController::class, 'ipn']);
 //SSLCOMMERZ END
-

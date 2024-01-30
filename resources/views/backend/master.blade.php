@@ -48,23 +48,14 @@
   @include('backend.layouts.partials.side')
   <!-- End Sidebar-->
 
-
-  
-
-
   <main id="main" class="main">
-
     <!-- End Page Title -->
-
      <section class="section dashboard">
       @yield('content')
      </section>
-
    </main><!-- End #main -->
 
-
   <!-- ======= Footer ======= -->
- 
   @include('backend.layouts.partials.footer')
   <!-- End Footer -->
 

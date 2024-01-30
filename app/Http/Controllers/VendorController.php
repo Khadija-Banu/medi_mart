@@ -10,6 +10,10 @@ use Image;
 
 class VendorController extends Controller
 {
+     //security
+     public function __construct(){
+        $this->middleware('auth');
+    }
     public function index(){
         $vendors=Vendor::paginate(4);
         return view ('backend.vendor_details.vendor_index',compact('vendors'));

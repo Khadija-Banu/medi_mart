@@ -10,6 +10,10 @@ use Image;
 
 class SliderController extends Controller
 {
+     //security
+     public function __construct(){
+        $this->middleware('auth');
+    }
     public function index(){
         $sliders=Slider::paginate(4);
         return view ('backend.slider_details.slider_index',compact('sliders'));

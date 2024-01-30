@@ -12,20 +12,34 @@
             <div class="form-group mt-2">
                 <input class="form-control" type="text " name="vendor_name" value="{{$vendors->vendor_name}}">
             </div>
+
             <div class="form-group mt-2">
-              <input class="form-control" type="text " name="store_name" value="{{$vendors->store_name}}">
-          </div>
+                <input class="form-control" type="text " name="store_name" value="{{$vendors->store_name}}">
+            </div>
+
             <div class="form-group mt-2">
                 <input type="file" name="store_image" class="form-control" value="{{$vendors->store_image}}" >
-              </div>
-              <div class="form-group mt-2">
+            </div>
+
+            <div class="form-group mt-2">
                 <input type="text" name="store_website_link" class="form-control" value="{{$vendors->store_website_link}}">
-              </div>
-              <div class="form-group mt-2">
+            </div>
+
+            <div class="form-group mt-2">
                 <input type="text" name="location" class="form-control" value="{{$vendors->location}}" >
-              </div>
-              <button type="submit" class="btn btn-success mt-2">Update</button>
+            </div>
+
+            <div class="form-group mt-2">
+                <input type="text" name="latitude" class="form-control" value="{{$vendors->latitude}}" >
+            </div>
+
+            <div class="form-group mt-2">
+                <input type="text" name="longitude" class="form-control" value="{{$vendors->longitude}}" >
+            </div>
+
+            <button type="submit" class="btn btn-success mt-2">Update</button>
             </form>
+
         </div>
     </div>
 </div>

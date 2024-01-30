@@ -24,7 +24,7 @@
               <span class="text-danger">{{ $message }}</span>
               @enderror
 
-          </div>
+            </div>
               <div class="form-group mt-2">
                 <input type="text" name="total_price" class="form-control" value="{{old('total_price')}}" placeholder="Total Price ">
 
@@ -33,6 +33,12 @@
                 @enderror
 
               </div>
+
+              <div class="form-group mt-2">
+                <label for="">Prescription Image</label>
+                <input type="file" name="prescription_image" class="form-control"   >
+              </div>
+              
               <div class="form-group mt-2">
                 <select class="form-select" name="user_id" >
                   <option value="">Select user name</option>

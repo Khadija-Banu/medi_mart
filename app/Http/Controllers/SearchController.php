@@ -10,7 +10,10 @@ use App\Models\Category;
 
 class SearchController extends Controller
 {
-   
+    //security
+    public function __construct(){
+      $this->middleware('auth');
+  }
   //Search blog title in navbar search field
   public function medicine_search(Request $request){
     $categories=Category::all();

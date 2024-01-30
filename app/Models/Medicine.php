@@ -8,6 +8,7 @@ use App\Models\Category;
 use App\Models\Cart;
 use App\Models\Vendor;
 use App\Models\Company;
+use App\Models\Comment;
 
 class Medicine extends Model
 {
@@ -36,5 +37,8 @@ class Medicine extends Model
      //One to many relation User to Post
      public function carts(){
         return $this->hasMany(Medicine::class);
+    }
+    public function comments(){
+        return $this->hasMany(Comment::class);
     }
 }

@@ -17,6 +17,8 @@ return new class extends Migration
             $table->string('medicine_image');
             $table->text('medicine_description');
             $table->float('medicine_price');
+            $table->string('medicine_quantity');
+            $table->string('prescription_image');
             $table->string('company_id')->nullable();
             $table->unsignedBigInteger('category_id')->nullable();
             $table->unsignedBigInteger('vendor_id')->nullable();

@@ -13,13 +13,24 @@
             </div>
             <div class="form-group mt-2">
                 <input type="file" name="medicine_image" value="{{$medicines->medicine_image}}"class="form-control" >
-              </div>
+            </div>
+            <div class="form-group mt-2">
+                <input class="form-control" type="text "value="{{$medicines->medicine_quantity}}" name="medicine_quantity" >
+            </div>
               <div class="form-group mt-2">
                 <input class="form-control" type="text "value="{{$medicines->medicine_description}}" name="medicine_description" >
             </div>
             <div class="form-group mt-2">
                 <input class="form-control" type="text "value="{{$medicines->medicine_price}}" name="medicine_price" >
             </div>
+            <div class="form-group mt-2">
+                <select class="form-select" name="prescription_image" >
+                  <option value="">Prescription Required</option>                 
+                  <option value="Yes" >Yes</option> 
+                  <option value="No" >No</option>           
+                </select>
+
+              </div>
             <div class="form-group mt-2">
                 <select class="form-select" name="category_id" >
                   <option value="">Select category name</option>
@@ -31,11 +42,13 @@
               </div>
 
               <div class="form-group mt-2">
-                <input type="text" name="company_name" class="form-control"  value="{{old('company_name')}}" placeholder="company name" >
-
-                @error('company_name')
-                <span class="text-danger">{{ $message }}</span>
-                @enderror
+              <select class="form-select" name="company_id" >
+                  <option value="">Select company name</option>
+                  @foreach ($companies as $company)
+                  <option value="{{$company->id}}" >{{$company->company_name}}</option>
+                  @endforeach
+              
+                </select>
 
               </div>
               

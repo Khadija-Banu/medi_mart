@@ -25,6 +25,7 @@ class MedicineRequest extends FormRequest
             'medicine_name'=> 'required',
             'medicine_image' => 'required',
             'medicine_description'=> 'required',
+            'prescription_image' => 'required',
             'medicine_price' => 'required',
             'vendor_id'=> 'required',
             'category_id' => 'required',

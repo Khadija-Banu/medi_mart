@@ -10,6 +10,11 @@ use Image;
 
 class CategoryController extends Controller
 {
+     //security
+     public function __construct(){
+        $this->middleware('auth');
+    }
+    
     public function index(){
         $categories=Category::paginate(4);
         return view ('backend.category_details.category_index',compact('categories'));
@@ -33,7 +38,7 @@ class CategoryController extends Controller
         return redirect()->route('category_index');
        }
        catch(Exception $e){
-        return redirect()-route('category_create')->withMessage($e->getMessage());
+        return redirect()->route('category_create')->withMessage($e->getMessage());
        }
     }
 

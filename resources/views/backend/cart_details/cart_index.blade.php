@@ -13,6 +13,7 @@
                     <th style="color:rgba(70,99,202,255)" > Quantity</th> 
                     <th style="color:rgba(70,99,202,255)" >Unit price</th> 
                     <th style="color:rgba(70,99,202,255)"  >Total price</th> 
+                    <th style="color:rgba(70,99,202,255)"  >Prescription Image</th>
                     <th style="color:rgba(70,99,202,255)"  >User Name</th>   
                     <th style="color:rgba(70,99,202,255)"  >Medicine Name</th>                               
                    <th style="color:rgba(70,99,202,255)"  >Actions</th>     
@@ -28,6 +29,13 @@
                     <td>{{$cart->quantity}}</td>
                     <td>{{$cart->unit_price}}</td>               
                     <td>{{$cart->total_price}}</td>
+                    <td>
+                      @if(file_exists(storage_path().'/app/public/prescriptions/'.$cart->prescription_image) &&(!is_null($cart->prescription_image)))
+                      <img src="{{asset('storage/prescriptions/'. $cart->prescription_image)}}"height="100px"width="150px">
+                      @else         
+                      <img src="{{asset('storage/categories/default.jpg')}}"height="100px" width="150px">
+                      @endif
+                    </td>
                     <td>{{$cart->user->name?? ''}}</td> 
                     <td>{{$cart->medicine->medicine_name?? ''}}</td>              
                     <td>
@@ -39,8 +47,7 @@
                 </tbody>
               </table>
 
-                   {{-- pegination link show --}}
-                   {{ $carts->links() }} 
+                 
         </div>
     </div>
 </div>

@@ -14,6 +14,11 @@ use Image;
 
 class MedicineController extends Controller
 {
+     //security
+     public function __construct(){
+        $this->middleware('auth');
+    }
+    
     public function index(){
         $medicines=Medicine::paginate(4);
         return view ('backend.medicine_details.medicine_index',compact('medicines'));
@@ -39,7 +44,7 @@ class MedicineController extends Controller
      return redirect()->route('medicine_index');
     }
     catch(Exception $e){
-     return redirect()-route('medicine_create')->withMessage($e->getMessage());
+     return redirect()->route('medicine_create')->withMessage($e->getMessage());
     }
     }
 
@@ -48,7 +53,8 @@ class MedicineController extends Controller
         $vendors=Vendor::all();
         $categories=Category::all();
         $medicines=Medicine::find($id);
-        return view ('backend.medicine_details.medicine_edit',compact('medicines','categories','vendors'));
+        $companies=Company::all();
+        return view ('backend.medicine_details.medicine_edit',compact('medicines','categories','vendors','companies'));
     }
 
     public function update(Request $request,$id){
