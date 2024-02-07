@@ -123,6 +123,7 @@ Route::get('/user_list',[ProfileController::class,'userList'])->middleware(['aut
 
 
 Route::get('/search',[SearchController::class,'medicine_search'])->middleware(['auth', 'user'])->name('search');
+Route::get('get',[SearchController::class,'medicine']);
 // Route::get('/f_search',[SearchController::class,'f_medicine_search'])->name('f_search');
 
 

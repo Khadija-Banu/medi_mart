@@ -69,9 +69,9 @@
                                             
                                         </div>
                                         
-                                        <div id="prescription" class="mb-3" style="display: none;" >
+                                        <div id="prescription" class="mb-3" style="display:none;" >
                                             <label for="">Upload your prescription </label>
-                                            <input type="file"  name='prescription_image' class="form-control">
+                                            <input type="file"  name='prescription_image' class="form-control" >
                                             <p id="pres">{{$medicine->prescription_image}}</p>
                                         </div>
                                         
@@ -237,49 +237,29 @@
 
 <script>
 
-      $(document).ready(function(){
-        setInterval(function(){
-        // location.reload();
-        if ($('#pres').text() == 'Yes') {
-            $("#prescription").show();
-        }
-      });
+$(document).ready(function(){
+        // Check initially
+        checkPrescriptionStatus();
 
+        function checkPrescriptionStatus() {
+        
+            if ($('#pres').text().trim() === 'Yes') {
+                $("#prescription").show();
+                $("#prescription input[type=file]").prop('required', true);
+            } else {
+                $("#prescription").hide();
+                $("#prescription input[type=file]").prop('required', false);
+            }
+        }
+
+      
     });
+
+
   
 </script>
 
 
-<!-- <script>
-    $(document).ready(function(){
-      // Initial check and show/hide
-      checkAndShowPrescription();
-
-      // Auto-check and show/hide every 10 seconds (adjust the interval as needed)
-      setInterval(function(){
-        checkAndShowPrescription();
-      }, 10000); // 10000 milliseconds = 10 seconds
-
-      function checkAndShowPrescription() {
-        // Use AJAX to fetch the updated value of #pres from the server
-        $.ajax({
-          url: '/path/to/server/endpoint',  // Replace with the actual endpoint
-          method: 'GET',
-          success: function(data) {
-            // Assuming the server response is the actual data
-            if ($('#pres').text() == 'Yes') {
-              $("#prescription").show();
-            } else {
-              $("#prescription").hide();
-            }
-          },
-          error: function(xhr, status, error) {
-            console.error('Error fetching data:', status, error);
-          }
-        });
-      }
-    });
-  </script> -->
 
 
 @endsection

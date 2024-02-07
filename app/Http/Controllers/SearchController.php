@@ -57,5 +57,7 @@ class SearchController extends Controller
   //   return view('backend.medicine_details.medicine_search_list',compact('medicines','query'));
   // }
 
- 
+  public function medicine(Request $request){
+    $data=Medicine::where('medicine_name','like','%'.$request->searchItem.'%') ->get();
+  }
 }

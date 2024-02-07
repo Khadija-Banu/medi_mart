@@ -15,10 +15,8 @@
 <link rel="stylesheet" href="{{asset('ui/frontend')}}/assets/css/main.css">
 <link rel="stylesheet" href="{{asset('ui/frontend')}}/assets/css/custom.css"></head>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
 
-<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN67P1FNGOdI5qFf5YO2TC1iPbpe5Z9sN" crossorigin="anonymous"> -->
-<!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.15.0/font/bootstrap-icons.css"> -->
-<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 
 <body>
       
@@ -28,11 +26,14 @@
 
     @include('frontend.layouts.partials.footer')  
     <!-- Vendor JS-->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <script src="{{asset('ui/frontend')}}/assets/js/vendor/jquery-3.6.0.min.js"></script>
     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDeLvqI79HYxxdOfnicKS-TBg4A92B7jww&libraries=places"></script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script src="{{asset('ui/frontend')}}/assets/js/vendor/modernizr-3.6.0.min.js"></script>
-<script src="{{asset('ui/frontend')}}/assets/js/vendor/jquery-3.6.0.min.js"></script>
+
 <script src="{{asset('ui/frontend')}}/assets/js/vendor/jquery-migrate-3.3.0.min.js"></script>
 <script src="{{asset('ui/frontend')}}/assets/js/vendor/bootstrap.bundle.min.js"></script>
 <script src="{{asset('ui/frontend')}}/assets/js/plugins/slick.js"></script>
@@ -51,12 +52,51 @@
 <script src="{{asset('ui/frontend')}}/assets/js/plugins/jquery.vticker-min.js"></script>
 <script src="{{asset('ui/frontend')}}/assets/js/plugins/jquery.theia.sticky.js"></script>
 <script src="{{asset('ui/frontend')}}/assets/js/plugins/jquery.elevatezoom.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 <!-- Template  JS -->
 <script src="{{asset('ui/frontend')}}/assets/js/main.js?v=3.3"></script>
 <script src="{{asset('ui/frontend')}}/assets/js/shop.js?v=3.3"></script>
 
 
+<script>
+    var jq = $.noConflict();
+    jq(document).ready(function($) {
+        jq("#medicine_name").select2({
+            ajax: {
+                url: '{{ URL("get") }}',
+                type: 'get',
+                dataType: 'json',
+                delay: 250,
+                data: function(params) {
+                    return {
+                        searchItem: params.term,
+                        page: params.page ,
+                    };
+                },
+                processResults: function(data, params) {
+                    return {
+                        results: data.slice(0),
+                    };
+                },
+                cache: true,
+            },
+            placeholder: 'Search for medicine...........',
+            templateResult: templateResult,
+            templateSelection: templateSelection
+        });
+    });
 
+    function templateResult(data) {
+        if (data.loading) {
+            return data.text;
+        }
+        return data.medicine_name;
+    }
+
+    function templateSelection(data) {
+        return data.medicine_name;
+    }
+</script>
 
 
 <script>
