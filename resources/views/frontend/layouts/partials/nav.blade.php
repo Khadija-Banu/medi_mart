@@ -9,7 +9,7 @@
                 <div class="header-right">
                     <div class="search-style-1">
                         <form action="{{route('search')}}">                                
-                            <input type="text" id="medicine_name" name="query" placeholder="Search for items...">
+                            <input type="text" id="medicineName" name="query" placeholder="">
                         </form>
                     </div>
                 <div>

@@ -181,4 +181,46 @@
     
 </main>
 
+<!-- <script>
+    var jq = $.noConflict();
+jq(document).ready(function($) {
+
+ 
+        jq("#medicine_name").select2({
+            ajax: {
+                url:'{{ URL("/get") }}',
+                type: 'get',
+                dataType: 'json',
+                delay: 250,
+                data: function(params) {
+                    return {
+                        searchItem: params.term,
+                        page: params.page ,
+                    };
+                },
+                processResults: function(data, params) {
+                    return {
+                        results: data.slice(0),
+                    };
+                },
+                cache: true,
+            },
+            placeholder: 'Search for medicine...........',
+            templateResult: templateResult,
+            templateSelection: templateSelection
+        });
+    });
+
+    function templateResult(data) {
+        if (data.loading) {
+            return data.text;
+        }
+        return data.medicine_name;
+    }
+
+    function templateSelection(data) {
+        return data.medicine_name;
+    }
+</script> -->
+
 @endsection

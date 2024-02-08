@@ -59,5 +59,6 @@ class SearchController extends Controller
 
   public function medicine(Request $request){
     $data=Medicine::where('medicine_name','like','%'.$request->searchItem.'%') ->get();
-  }
+    return $data;
+    }
 }
