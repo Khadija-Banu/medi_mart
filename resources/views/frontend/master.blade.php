@@ -65,7 +65,7 @@
 <script src="{{asset('ui/frontend')}}/assets/js/shop.js?v=3.3"></script>
 
 
-<script>
+ <script>
     var jq = $.noConflict();
     jq(document).ready(function($) {
       
@@ -105,7 +105,7 @@
     function templateSelection(data) {
         return data.medicine_name;
     }
-</script> 
+</script>  
 
 
 <script>

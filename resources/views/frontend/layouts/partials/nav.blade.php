@@ -8,8 +8,14 @@
                 </div>
                 <div class="header-right">
                     <div class="search-style-1">
-                        <form action="{{route('search')}}">                                
+                        <form action="{{route('search')}}"> 
+                            <select class="form-select" id="medicineName" >
+                                
+                                                          
                             <input type="text" id="medicineName" name="query" placeholder="">
+                            </select>
+<button type="submit">submit</button>
+ 
                         </form>
                     </div>
                 <div>
