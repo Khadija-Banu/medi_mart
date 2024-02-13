@@ -90,14 +90,14 @@
                         <div class="mb-25">
                             <h5>Payment</h5>
                         </div>
-                        <div class="payment_option">
+                        <div class="delivery_system">
                             <div class="row">
                                 <div class="custome-radio col">
-                                    <input class="form-check-input" type="radio" name="payment_option" id="exampleRadios3"  >
+                                    <input class="form-check-input" type="radio" name="delivery_system" id="exampleRadios3"  >
                                     <label class="form-check-label" for="exampleRadios3" data-bs-toggle="collapse" data-target="#cashOnDelivery" aria-controls="cashOnDelivery">Cash On Delivery</label>                                        
                                 </div>
                                 <div class="custome-radio col">
-                                    <input class="form-check-input" type="radio" name="payment_option" id="exampleRadios2"  >
+                                    <input class="form-check-input" type="radio" name="delivery_system" id="exampleRadios2"  >
                                     <label class="form-check-label" for="exampleRadios2" data-bs-toggle="collapse" data-target="#cashOnDelivery" aria-controls="cashOnDelivery">Card Payment </label>                                        
                                 </div>
                             </div>

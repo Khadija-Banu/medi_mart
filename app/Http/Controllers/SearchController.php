@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Medicine;
 use App\Models\Category;
+use App\Models\Order;
+use App\Models\Cart;
 
 
 
@@ -14,43 +16,10 @@ class SearchController extends Controller
     public function __construct(){
       $this->middleware('auth');
   }
-  //Search blog title in navbar search field
-//   public function medicine_search(Request $request){
-//     $categories=Category::all();
-//     $queryName=$request->input(key: 'query');
-//     $medicines=Medicine::where('medicine_name','LIKE',"%$queryName%")->get();
-    
-//     $userInfo= @unserialize(file_get_contents("http://ip-api.com/php"));
-  
-//     $lat = $userInfo['lat'];
-//     $lon = $userInfo['lon'];
-//     $query = $userInfo['query'];
-
-//     $vendors = [];
-//     foreach ($medicines as $medicine)
-//     {
- 
-// // foreach($medicine->vendor as $data){
-
-//     $km = $this->calculateDistance($lat, $lon, $medicine->vendor->latitude, $medicine->vendor->latitude);
-
-//     $data['current_km'] = ceil($km['kilometers']);
-
-//     }
-
-//     $vendors[] = $data;
-
-//     $key = array_column($vendors,'current_km');
-//     array_multisort($key, SORT_ASC, $vendors);
-//     // dd($locationInfo);
-    
-//     return view('frontend.medicine_search_list',compact('medicines','queryName','categories','vendors','userInfo','query'));
-//   }
-
-
-
 
 public function medicine_search(Request $request){
+  $myOrderItems=Order::where('user_id',auth()->user()->id)->count();
+  $myItems=Cart::where('user_id',auth()->user()->id)->count();
   $categories = Category::all();
   $queryName = $request->input('query');
   $medicines = Medicine::where('medicine_name', 'LIKE', "%$queryName%")->get();
@@ -63,32 +32,35 @@ public function medicine_search(Request $request){
 
   $vendors = [];
   foreach ($medicines as $medicine) {
-      $data = []; // Initialize data for each medicine
+      $data = [];
       
-      // foreach ($medicine->vendors as $vendor) {
           $km = $this->calculateDistance($lat, $lon, $medicine->vendor->latitude, $medicine->vendor->longitude);
           
-          // Prepare vendor data
           $vendor_data = [
               'vendor_id' => $medicine->vendor->id,
               'current_km' => ceil($km['kilometers']),
-              // Add other vendor data you want to store here
           ];
           
-          $data[] = $vendor_data; // Add vendor data to data array
-      // }
-
-      // Sort vendors by current_km for each medicine
-      usort($data, function ($a, $b) {
-          return $a['current_km'] <=> $b['current_km'];
-      });
-
-      // Add data array for each medicine to vendors array
-      $vendors[] = $data;
+          $data[] = $vendor_data; 
+    
+      $vendors[] = $data;   
      
   }
+ 
+usort($vendors, function ($a, $b) {
+ 
+  $currentKmA = isset($a['current_km']) ? $a['current_km'] : null;
+  $currentKmB = isset($b['current_km']) ? $b['current_km'] : null;
+
+  if ($currentKmA === $currentKmB) {
+      return 0;
+  }
+
+  return ($currentKmA < $currentKmB) ? -1 : 1;
+});
+
   // dd($vendors[0][0]['vendor_id']);
-  return view('frontend.medicine_search_list', compact('medicines', 'queryName', 'categories', 'vendors', 'userInfo', 'query'));
+  return view('frontend.medicine_search_list', compact('medicines', 'queryName', 'categories', 'vendors', 'userInfo', 'query','myOrderItems','myItems'));
 }
 
 

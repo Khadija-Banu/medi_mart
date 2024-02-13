@@ -32,7 +32,7 @@
                                 @foreach ($cartItems as $item)
                                 <tr>
                                     <td class="image product-thumbnail"><img src="{{asset('storage/medicines/'. $item->medicine->medicine_image)}}" alt="#"></td>
-                                    <td class="image product-thumbnail"><img src="{{asset('storage/prescriptions/'. $item->prescription_image)}}"></td>
+                                    <td class="image product-thumbnail"><img src="{{asset('storage/prescriptions/'. $item->prescription_image)}}"alt="No need"></td>
                                     
                                     <td class="product-des product-name">
                                         {{$item->medicine->medicine_name}}

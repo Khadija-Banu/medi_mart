@@ -87,11 +87,13 @@
                                             </div>      
                                         </div>
                                        </form>
-                                        <span > Store Name: 
-                                            <span class="text-brand ">{{$medicine->vendor->store_name?? ''}}
+                                       <div class="mt-5">
+                                            <span> Shop Name: 
+                                                <span class="text-brand ">{{$medicine->vendor->store_name?? ''}}
+                                                </span>                                           
                                             </span>
-                                            
-                                        </span>
+                                       </div>
+                                        
                                         <ul class="product-meta font-xs color-grey mt-10">
                                             <li>Availability:
                                                 <span class="in-stock text-success ml-5">{{$medicine->medicine_quantity?? ''}} Items In Stock</span>

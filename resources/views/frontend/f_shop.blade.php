@@ -50,13 +50,13 @@
                               
                                 <div     class="product-content-wrap mt-5">                                 
                                     <h2><a href="product-details.html">{{$medicine->medicine_name}}</a></h2>
+                                    <span>Company: {{$medicine->company->company_name}}</span><br>
+                                    <span>Shop: {{$medicine->vendor->vendor_name}}</span>
                                     <div class="rating-result" title="90%">
-                                        <span>
-                                     
-                                        </span>
+                                        <span></span>
                                     </div>
                                     <div class="product-price">
-                                        <span>${{$medicine->medicine_price}}</span>
+                                        <span>Rs.{{$medicine->medicine_price}}</span>
                                      
                                     </div>
                                     <div class="product-action-1 show">
