@@ -24,6 +24,7 @@
                     <div class="row product-grid-3">
                     @foreach ($medicines as $medicine)
                    
+                   
                         <div class="col-lg-3 col-md-4 col-sm-6">
                             <div class="product-cart-wrap mb-30">
                                 <div class="product-img-action-wrap">
@@ -50,22 +51,24 @@
                                        
                                      
                                     </div>
-                                    <span>Gulshan. 5.1km</span>
+                                    
                                     <div class="product-price" >
-                                        <!-- <span>latitude.{{$medicine->vendor->latitude}}</span>
+                                        <span>latitude.{{$medicine->vendor->latitude}}</span>
                                         <span>longitude.{{$medicine->vendor->longitude}}</span>
-                                       -->
-                                        <!-- <input type="text" value="{{$medicine->vendor->location}}" name="location" id="location">
-                                        <input type="text" value="" name="dkm" id="dkm">
-                                        <input type="text" value="" name="dmin" id="dmin"> -->
+                                     
+                                        <input type="text" value="{{$medicine->vendor->location}}" name="location" id="location">
+                                        
+                        <input type="text" value=" {{$vendors[0]['current_km'] }}" name="dkm" id="dkm">
+                       
+                                        <input type="text" value="" name="dmin" id="dmin">
                                      
                                     </div>
 
-                                    <!-- <div  class="product-price">
+                                        <div class="product-price">
                                         <input type="text" id="ip">
                                         <input type="text" id="city">
                                        
-                                    </div> -->
+                                    </div>
 
                                     <div class="product-action-1 mt-5 show">
                                     <a onclick="showMap({{$medicine->vendor->latitude}}, {{$medicine->vendor->longitute}}" class="ms-4 "><i class="fa-solid fa-location-dot fa-2xl"></i>
@@ -83,6 +86,9 @@
 
                         </div>                 
                         @endforeach   
+
+                     
+
                    
                 </div>
 
@@ -100,10 +106,13 @@
 
 
 <script>
-    $.getJSON("https://api.ipify.org/?format=json", function(data) {
+       $(document).ready(function() {
+      $.getJSON("https://api.ipify.org/?format=json", function(data) {
         let ip = data.ip;
         $("#ip").val(ip);
+        // Assuming getCity is defined elsewhere
         getCity(ip);
+      });
     });
 
     function getCity(ip){
@@ -136,37 +145,37 @@
     }, callback);
 }
 
-function callback(response, status) {
-    if (status != google.maps.DistanceMatrixStatus.OK) {
-        console.log("Something  wrong");
-    } else {
-        if (response.rows[0].elements[0].status == "ZERO_RESULTS") {
-            console.log("No roads found");
-        } else {
-            var distance = response.rows[0].elements[0].distance.text;
-            var distance_in_km=distance.value/1000;
-            var duration_in_min=distance.value/60;
-            jQuery("#dkm").val(distance_in_km);
-            jQuery("#dmin").val(duration_in_min);
-            console.log(distance);
-        }
-    }
-}
+// function callback(response, status) {
+//     if (status != google.maps.DistanceMatrixStatus.OK) {
+//         console.log("Something  wrong");
+//     } else {
+//         if (response.rows[0].elements[0].status == "ZERO_RESULTS") {
+//             console.log("No roads found");
+//         } else {
+//             var distance = response.rows[0].elements[0].distance.text;
+//             var distance_in_km=distance.value/1000;
+//             var duration_in_min=distance.value/60;
+//             jQuery("#dkm").val(distance_in_km);
+//             jQuery("#dmin").val(duration_in_min);
+//             console.log(distance);
+//         }
+//     }
+// }
 
 
-// map start
-fucntion showMap(lat,lng){
-    var coord = {lat:lat, lng:lng};
-    var map = new google.maps.Map(document.getElementById("map"),
-    {
-        zoom:10,
-        center:coord
-    });
-    new google.maps.Marker({
-        position:coord,
-        map:map
-    })
-}
-showMap
+// // map start
+// fucntion showMap(lat,lng){
+//     var coord = {lat:lat, lng:lng};
+//     var map = new google.maps.Map(document.getElementById("map"),
+//     {
+//         zoom:10,
+//         center:coord
+//     });
+//     new google.maps.Marker({
+//         position:coord,
+//         map:map
+//     })
+// }
+// showMap
 </script>
 @endsection

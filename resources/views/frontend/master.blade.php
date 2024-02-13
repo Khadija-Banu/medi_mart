@@ -14,8 +14,12 @@
 <link href="{{asset('ui/backend')}}/assets/img/medi_logo.png" rel="icon">
 <link rel="stylesheet" href="{{asset('ui/frontend')}}/assets/css/main.css">
 <link rel="stylesheet" href="{{asset('ui/frontend')}}/assets/css/custom.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDeLvqI79HYxxdOfnicKS-TBg4A92B7jww&libraries=places"></script>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" rel="stylesheet">
 <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.1.0-beta.1/css/select2.min.css" rel="stylesheet" />
 </head>
 <body>
@@ -29,7 +33,7 @@
 
 
 
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+   
 
     <script src="{{asset('ui/frontend')}}/assets/js/vendor/jquery-3.6.0.min.js"></script>
     <!-- <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDeLvqI79HYxxdOfnicKS-TBg4A92B7jww&libraries=places"></script> -->
@@ -65,7 +69,7 @@
 <script src="{{asset('ui/frontend')}}/assets/js/shop.js?v=3.3"></script>
 
 
- <script>
+ <!-- <script>
     var jq = $.noConflict();
     jq(document).ready(function($) {
       
@@ -105,7 +109,7 @@
     function templateSelection(data) {
         return data.medicine_name;
     }
-</script>  
+</script>   -->
 
 
 <script>
